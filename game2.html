@@ -35,12 +35,21 @@
             font-size: 300%;
         }
     </style>
+    <script>
+        function change(){
+            document.getElementById("div1").setAttribute("style","background-image:none; background-color:black;")
+            document.getElementById("title").setAttribute("style","color:red;")
+            document.getElementById("div2").setAttribute("style","background-image:none; background-color:black;")
+            document.getElementById("div2").innerHTML='<a href="game.html"><input onclick="change()" type="button" width="100" value="你真的要進入嗎?" id="b1" style="color:red;"></a>';
+            
+        }
+    </script>
 </head>
 
 <body>
-    <div><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>遊戲名稱</h1>
-        <input type="button" width="100" value="進入遊戲">
+    <div id="div1"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 id="title">遊戲名稱</h1>
+        <div id="div2"><input onclick="change()" type="button" width="100" value="進入遊戲" id="b1"></div>
         <br><br><br><br><br><br><br><br><br><br><br>
     </div>
 </body>
