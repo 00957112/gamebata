@@ -6,11 +6,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+
+        .div1 {
+            background-color: cornflowerblue;
+            background-size: 75%;
+            margin-left: calc(100%/8);
+            width: 75%;
+            height: 50%;
+            position: relative;
+        }
+    </style>
+   <link href="jquery-ui.css" rel="stylesheet">
+   <script src="external/jquery/jquery.js"></script>
+   <script src="jquery-ui.js"></script>
     
+     <script>
+        $(function() {
+          $( "#dialog" ).dialog({
+            autoOpen: false,
+            modal: true,height: 140,
+            show: {
+              effect: "blind",
+              duration: 500
+            },
+            hide: {
+              effect: "blind",
+              duration: 250
+            }
+          });
+       
+          $( "#p" ).click(function() {
+            $( "#dialog" ).dialog( "open" );
+          });
+          $( "#p2" ).click(function() {
+            $( "#dialog2" ).dialog( "open" );
+          });
+          $( "#dialog2" ).dialog({
+            autoOpen: false,
+            modal: true,height: 140,
+            show: {
+              effect: "blind",
+              duration: 500
+            },
+            hide: {
+              effect: "blind",
+              duration: 250
+            }
+          });
+        });//onclick="phone(); onclick="door();
+        </script>
 </head>
 
 <body>
-    
+    <div id="dialog" title="說明">
+        <p>這是一個電話</p>
+    </div>
+    <div id="dialog2" title="說明">
+        <p>這是一扇門</p>
+    </div>
+    <div class="div1">
+        <img src="bkt.png" width="90%" height="600px" z-index="0" usemap="#workmap">
+
+        <map name="workmap">
+            <area shape="rect" coords="510,320,610,390" id="p">
+            <area shape="rect" coords="100,100,350,600" id="p2" >
+        </map>
+    </div>
 </body>
 
 </html>
