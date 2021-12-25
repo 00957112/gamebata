@@ -38,6 +38,8 @@
 
     }
     $(function () {
+
+      //-----------------------左箭頭
       $("#doorTopiano").click(
         function () {
           $("#p").off("click",);
@@ -89,6 +91,60 @@
             $("#pianoAndpic").hide()
         }
       )
+      //-------------------------------------
+      $("#doorTodesk").click(
+        function () {
+          $("#p").off("click",);
+          $("#p2").off("click",);
+          $("#deskAndFish").show(),
+            $("#doorAndPhone").hide()
+        }
+      )
+      $("#deskTowindow").click(
+        function () {
+          $("#p").off("click",);
+          $("#p2").off("click",);
+          $("#windowAndWoods").show(),
+            $("#deskAndFish").hide()
+        }
+      )
+      $("#windowTopiano").click(
+        function () {
+          $("#p").off("click",);
+          $("#p2").off("click",);
+          $("#pianoAndpic").show(),
+            $("#windowAndWoods").hide()
+        }
+      )
+      $("#pianoTodoor").click(
+        function () {
+          $("#p").click(function () {//電話
+            if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
+            else { document.getElementById("phoncall").pause(); }
+            $("#dialog").dialog("open");
+            console.log("xdfc");
+          });
+          $("#p2").click(function () {//門
+            $("#dialog2").dialog("open");
+          });
+          $("#dialog2").dialog({
+            autoOpen: false,
+            modal: true, height: 140,
+            show: {
+              effect: "blind",
+              duration: 500
+            },
+            hide: {
+              effect: "blind",
+              duration: 250
+            }
+          });
+          $("#doorAndPhone").show(),
+            $("#pianoAndpic").hide()
+        }
+      )
+
+
       $("#deskAndFish").hide()
       $("#windowAndWoods").hide()
       $("#pianoAndpic").hide()
@@ -165,7 +221,7 @@
           <area shape="rect" coords="0,0,600,600" id="tt">
         </map>
       </div>
-      <div class="col-sm-1"></div>
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="doorTodesk"></div>
     </div>
   </div>
 
@@ -175,7 +231,7 @@
       <div class="col-sm-10">
         <img src="桌子2_2.png" width="1000px" height="600px" z-index="0" usemap="#workmap">
       </div>
-      <div class="col-sm-1"></div>
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="deskTowindow"></div>
     </div>
   </div>
 
@@ -186,7 +242,7 @@
         <img src="phone-removebg-preview.png" width="90%" height="600px" z-index="0" usemap="#workmap">
 
       </div>
-      <div class="col-sm-1"></div>
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
     </div>
   </div>
 
@@ -197,7 +253,7 @@
         <img src="b.jpg" width="90%" height="600px" z-index="0" usemap="#workmap">
 
       </div>
-      <div class="col-sm-1"></div>
+      <div class="col-sm-1"> <input style="text-align: center;" type="button" value="->" id="pianoTodoor"></div>
     </div>
   </div>
 
