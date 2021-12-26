@@ -61,7 +61,29 @@
           $("#p").off("click",);
           $("#isAdoor").off("click",);
           $("#pianoAndpic").show(),
-            $("#doorAndPhone").hide()
+          $("#doorAndPhone").hide()
+            $("#topiano").click(function () {//鋼琴(近)
+              console.log("eee");
+              $("#pianono").show();
+            });
+            $("#piano").click(function () {//鋼琴(琴鍵)
+              console.log("eee1");
+              $("#piano_p").show();
+          });
+          $("#Do").click(function () {//do
+              console.log("do");});
+              $("#Re").click(function () {//re
+              console.log("re");});
+              $("#Mi").click(function () {//mi
+              console.log("mi");});
+              $("#Fa").click(function () {//fa
+              console.log("fa");});
+              $("#Sol").click(function () {//sol
+              console.log("sol");});
+              $("#Ra").click(function () {//ra
+              console.log("ra");});
+              $("#Si").click(function () {//si
+              console.log("si");});
         }
       )
       $("#deskTodoor").click(
@@ -118,6 +140,8 @@
           })
           $("#windowAndWoods").show(),
             $("#pianoAndpic").hide()
+            $("#pianono").hide();
+            $("#piano_p").hide();
         }
       )
       //-------------------------------------
@@ -157,10 +181,32 @@
           $("#isAdoor").off("click",);
           $("#pianoAndpic").show(),
             $("#windowAndWoods").hide()
+            $("#topiano").click(function () {//鋼琴(近)
+              console.log("eee");
+              $("#pianono").show();
+          });$("#piano").click(function () {//鋼琴(琴鍵)
+              console.log("eee1");
+              $("#piano_p").show();
+              
+          });
+          $("#Do").click(function () {//do
+              console.log("do");});
+              $("#Re").click(function () {//re
+              console.log("re");});
+              $("#Mi").click(function () {//mi
+              console.log("mi");});
+              $("#Fa").click(function () {//fa
+              console.log("fa");});
+              $("#Sol").click(function () {//sol
+              console.log("sol");});
+              $("#Ra").click(function () {//ra
+              console.log("ra");});
+              $("#Si").click(function () {//si
+              console.log("si");});
         }
       )
       $("#pianoTodoor").click(
-        function () {
+        function () {  $("#pianono").hide();$("#piano_p").hide();
           $("#p").click(function () {//電話
             if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
             else { document.getElementById("phoncall").pause(); }
@@ -232,7 +278,7 @@
       });
 
       $("#chair").draggable({ axis: "x" });
-
+      $("#pianono").hide();$("#piano_p").hide();
     });//onclick="phone(); onclick="door();
 
 
@@ -245,6 +291,28 @@
   <audio preload="auto" loop id="phoncall">
     <source src="phone-sound.mp3" type="audio/mpeg">
   </audio>
+  <audio preload="auto"  id="do1">
+    <source src="doremi/1 C.mp3" type="audio/mpeg">
+  </audio>
+  <audio preload="auto"id="re1">
+    <source src="doremi/2 D.mp3" type="audio/mpeg">
+  </audio>
+  <audio preload="auto"id="mi1">
+    <source src="doremi/3 E.mp3" type="audio/mpeg">
+  </audio>
+  <audio preload="auto" id="fa1">
+    <source src="doremi/4 F.mp3" type="audio/mpeg">
+  </audio>
+  <audio preload="auto" id="sol1">
+    <source src="doremi/5 G.mp3" type="audio/mpeg">
+  </audio>
+  <audio preload="auto" id="ra1">
+    <source src="doremi/6 A.mp3" type="audio/mpeg">
+  </audio>
+  <audio preload="auto" id="si1">
+    <source src="doremi/7 B.mp3" type="audio/mpeg">
+  </audio>
+
 
   <div id="dialog" title="這是一個電話">
     <img src="phone-removebg-preview.png" width="650" style=" text-align: center;" id="ooo" usemap="ooomap">
@@ -292,13 +360,30 @@
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
     </div>
   </div>
-
+  
   <div class="container-fluid mt-3" id="pianoAndpic">
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="pianoTowindow"></div>
       <div class="col-sm-10">
-        <img src="鋼琴_1.png" width="1000px" height="600px" z-index="0" usemap="#workmap">
-
+        <img src="鋼琴視角2.png" width="1000px "  id="piano_p" style="position: absolute; z-index: 6;"usemap="#pianodoremiworkmap" >
+        <img src="鋼琴視角1.png" width="1000px " z-index="1" id="pianono" style="position: absolute;" usemap="#pianonoworkmap">
+        <img src="鋼琴_1.png" width="1000px" height="600px" z-index="0" usemap="#pianoworkmap">
+        
+        <map name="pianoworkmap">
+          <area shape="rect" coords="150,200,450,400" id="topiano">
+        </map>
+        <map name="pianonoworkmap">
+          <area shape="rect" coords="100,200,750,300" id="piano">
+        </map>
+        <map name="pianodoremiworkmap">
+          <area shape="rect" coords="321,100,380,420" id="Do">
+          <area shape="rect" coords="381,100,430,420" id="Re">
+          <area shape="rect" coords="431,100,490,420" id="Mi">
+          <area shape="rect" coords="491,100,540,420" id="Fa">
+          <area shape="rect" coords="541,100,590,420" id="Sol">
+          <area shape="rect" coords="591,100,650,420" id="Ra">
+          <area shape="rect" coords="651,100,710,420" id="Si">
+        </map>
       </div>
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="->" id="pianoTodoor"></div>
     </div>
