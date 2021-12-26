@@ -84,6 +84,10 @@
       }
       console.log("1");
       window.alert("bingo");
+      closepiano();
+    }
+    function closepiano()
+    {
       $("#Do").off("click",);
       $("#Re").off("click",);
       $("#Mi").off("click",);
@@ -212,6 +216,9 @@
         function () {
           $("#p").off("click",);
           $("#isAdoor").off("click",);
+          $("#topiano").off("click",);
+          $("#piano").off("click",);
+          closepiano();
           $("#windowopen").click(function(){
               document.getElementById("towindow").setAttribute("src","窗戶_2.png");
           })
@@ -321,7 +328,12 @@
         }
       )
       $("#pianoTodoor").click(
-        function () {  $("#pianono").hide();$("#piano_p").hide();
+        function () {
+          $("#pianono").hide();
+          $("#piano_p").hide();
+          $("#topiano").off("click",);
+          $("#piano").off("click",);
+          closepiano();
           $("#p").click(function () {//電話
             if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
             else { document.getElementById("phoncall").pause(); }
