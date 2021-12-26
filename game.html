@@ -51,7 +51,23 @@
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
     function start() {
-
+     
+    }
+    function stop(){
+      document.getElementById("do1").pause();
+      document.getElementById("do1").currentTime=0;
+      document.getElementById("re1").pause();
+      document.getElementById("re1").currentTime=0;
+      document.getElementById("mi1").pause();
+      document.getElementById("mi1").currentTime=0;
+      document.getElementById("fa1").pause();
+      document.getElementById("fa1").currentTime=0;
+      document.getElementById("sol1").pause();
+      document.getElementById("sol1").currentTime=0;
+      document.getElementById("ra1").pause();
+      document.getElementById("ra1").currentTime=0;
+      document.getElementById("si1").pause();
+      document.getElementById("si1").currentTime=0;
     }
     $(function () {
 
@@ -71,18 +87,32 @@
               $("#piano_p").show();
           });
           $("#Do").click(function () {//do
+              stop();
+              document.getElementById("do1").play();
               console.log("do");});
-              $("#Re").click(function () {//re
+          $("#Re").click(function () {//re
+              stop();
+              document.getElementById("re1").play();
               console.log("re");});
-              $("#Mi").click(function () {//mi
+          $("#Mi").click(function () {//mi
+              stop();
+              document.getElementById("mi1").play();
               console.log("mi");});
-              $("#Fa").click(function () {//fa
+          $("#Fa").click(function () {//fa
+              stop();
+              document.getElementById("fa1").play();
               console.log("fa");});
-              $("#Sol").click(function () {//sol
+          $("#Sol").click(function () {//sol
+              stop();
+              document.getElementById("sol1").play();
               console.log("sol");});
-              $("#Ra").click(function () {//ra
+          $("#Ra").click(function () {//ra
+              stop();
+              document.getElementById("ra1").play();
               console.log("ra");});
-              $("#Si").click(function () {//si
+          $("#Si").click(function () {//si
+              stop();
+              document.getElementById("si1").play();
               console.log("si");});
         }
       )
@@ -190,18 +220,32 @@
               
           });
           $("#Do").click(function () {//do
+              stop();
+              document.getElementById("do1").play();
               console.log("do");});
-              $("#Re").click(function () {//re
+          $("#Re").click(function () {//re
+              stop();
+              document.getElementById("re1").play();
               console.log("re");});
-              $("#Mi").click(function () {//mi
+          $("#Mi").click(function () {//mi
+              stop();
+              document.getElementById("mi1").play();
               console.log("mi");});
-              $("#Fa").click(function () {//fa
+          $("#Fa").click(function () {//fa
+              stop();
+              document.getElementById("fa1").play();
               console.log("fa");});
-              $("#Sol").click(function () {//sol
+          $("#Sol").click(function () {//sol
+              stop();
+              document.getElementById("sol1").play();
               console.log("sol");});
-              $("#Ra").click(function () {//ra
+          $("#Ra").click(function () {//ra
+              stop();
+              document.getElementById("ra1").play();
               console.log("ra");});
-              $("#Si").click(function () {//si
+          $("#Si").click(function () {//si
+              stop();
+              document.getElementById("si1").play();
               console.log("si");});
         }
       )
