@@ -122,6 +122,7 @@
       //-----------------------左箭頭
       $("#doorTopiano").click(
         function () {
+          $("#phonetonum").hide();
           $("#phone1").hide();
           $(".dia").hide();
           $("#phone").off("click",);
@@ -300,6 +301,7 @@
       //-------------------------------------
       $("#doorTodesk").click(
         function () {
+          $("#phonetonum").hide();
           $("#fishplace").click(
             function () {
               console.log("f");
@@ -547,6 +549,7 @@
       });
       $("#forest").hide();
       $("#bugs").hide();
+      //-----------------暫時這樣 這個是在對話之後
        $("#phonenum").click(function(){//切到密碼輸入圖
           console.log("ppp");
           $("#phonetonum").show();
@@ -562,6 +565,8 @@
       $("#num8").click(function(){console.log("8");});
       $("#num9").click(function(){console.log("9");});
       $("#num0").click(function(){console.log("0");});
+      
+      
     });//onclick="phone(); onclick="door();
 
 
