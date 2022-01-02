@@ -70,6 +70,7 @@
     let counts = 0;
     let closePianokey = 1;
     let windowC = 1;
+    let phone_complete=0;
     function phonering() {
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
@@ -469,7 +470,7 @@
               if (document.getElementById("phoncall").currentTime != 0) {
                 document.getElementById("phoncall").currentTime = 0;
                 $("#phonedia").show();
-                $("#phonedia").click(function(){changedia_phone();});
+                $("#phonedia").click(function () { changedia_phone(); });
               }
             }
             $("#phone1").show();
@@ -563,25 +564,139 @@
           duration: 250
         }
       });
+      function phone_stop() {
+        console.log("ccc");
+        document.getElementById("phonesound").pause();
+        document.getElementById("phonesound").currentTime = 0;
+      }
+      let phonenum_arr = [-1, -1, -1, -1];
+      let phonenum_ans = [7, 8, 4, 6];
+      let phonenum_idx = 0;
+      function checkphone() {
+        console.log(phonenum_arr);
+        for (let i = 3; i >= 0; i -= 1) {
+          if (phonenum_ans[i] != phonenum_arr[phonenum_idx])
+            return;
+          if (phonenum_idx == 0)
+            phonenum_idx = 3;
+          else
+            phonenum_idx -= 1;
+        }
+        phone_complete=1;
+        document.getElementById("bee").play();
+        $("#phonetonum").hide();
+      }
       $("#forest").hide();
       $("#bugs").hide();
       //-----------------暫時這樣 這個是在對話之後
       $("#phonenum").click(function () {//切到密碼輸入圖
         console.log("ppp");
-        if(dia_phone_idx==3)
+        if (dia_phone_idx == 3&&phone_complete==0)
           $("#phonetonum").show();
       });
       $("#phonetonum").hide();
-      $("#num1").click(function () { console.log("1"); });
-      $("#num2").click(function () { console.log("2"); });
-      $("#num3").click(function () { console.log("3"); });
-      $("#num4").click(function () { console.log("4"); });
-      $("#num5").click(function () { console.log("5"); });
-      $("#num6").click(function () { console.log("6"); });
-      $("#num7").click(function () { console.log("7"); });
-      $("#num8").click(function () { console.log("8"); });
-      $("#num9").click(function () { console.log("9"); });
-      $("#num0").click(function () { console.log("0"); });
+      $("#num1").click(function () {
+        console.log("1");
+        console.log(document.getElementById("phonesound").currentTime);
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 1;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num2").click(function () {
+        console.log("2");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 2;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num3").click(function () {
+        console.log("3");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 3;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num4").click(function () {
+        console.log("4");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 4;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num5").click(function () {
+        console.log("5");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 5;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num6").click(function () {
+        console.log("6");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 6;
+        checkphone();
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num7").click(function () {
+        console.log("7");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 7;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num8").click(function () {
+        console.log("8");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 8;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num9").click(function () {
+        console.log("9");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 9;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
+      $("#num0").click(function () {
+        console.log("0");
+        if (document.getElementById("phonesound").currentTime != 0)
+          return;
+        document.getElementById("phonesound").play();
+        phonenum_arr[phonenum_idx] = 0;
+        phonenum_idx += 1;
+        phonenum_idx %= 4;
+        window.setTimeout(function () { phone_stop(); }, 1200);
+      });
 
 
     });//onclick="phone(); onclick="door();
@@ -620,7 +735,12 @@
   <audio preload="auto" id="si1">
     <source src="doremi/7 B.mp3" type="audio/mpeg">
   </audio>
-
+  <audio preload="auto" id="phonesound">
+    <source src="電話轉盤.mp3" type="audio/mpeg">
+  </audio>
+  <audio preload="auto" id="bee">
+    <source src="ox4zm-uraaj.mp3" type="audio/mpeg">
+  </audio>
 
   <div id="dialog" title="這是一個電話">
     <img src="電話1.png" width="650" style=" text-align: center;" id="ooo">
