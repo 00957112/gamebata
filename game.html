@@ -714,7 +714,35 @@
         phonenum_idx %= 4;
         window.setTimeout(function () { phone_stop(); }, 1200);
       });
+       $("#tocorner").click(
+        function(){
+            console.log("sh...");
+            $("#corner").show();
+        }); 
+        
+        $("#tocrossbottn").click(function(){
+          console.log("btn");
+          $("#cornerbotton").show();
+        });
+        $("#corner").hide();
+        $("#cornerbotton").hide();
 
+        $("#upup").click(
+        function(){
+            console.log("up");
+        });
+        $("#rightright").click(
+        function(){
+            console.log("right");
+        });
+        $("#downdown").click(
+        function(){
+            console.log("down");
+        });
+        $("#leftleft").click(
+        function(){
+            console.log("left");
+        });
 
     });//onclick="phone(); onclick="door();
 
@@ -775,6 +803,8 @@
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="<-" id="doorTopiano">
       </div>
       <div class="col-sm-10" id="div1">
+        <img src="角落放置後.png" id="cornerbotton"  width="1000px" height="600px" style="position: absolute; z-index:7;" usemap="#crossbotton" >
+        <img src="角落.png" id="corner" width="1000px" height="600px" style="position: absolute; z-index:6;" usemap="#tocornerbotton" >
         <img src="電話2.png" id="phonetonum" width="1000px" style="position: absolute; z-index:5;" usemap="#phonenumin">
         <img src="電話1.png" id="phone1" width="1000px" style="position: absolute; z-index:4;" usemap="#phoneworkmap">
         <img src="門_1.png" width="1000px" height="600px" z-index="0" usemap="#workmap">
@@ -782,6 +812,17 @@
           <area shape="rect" coords="660,350,750,420" id="phone">
           <area shape="rect" coords="215,120,430,600" id="isAdoor">
         </map>
+        <!---->
+        <map name="tocornerbotton">
+          <area shape="rect" coords="550,240,600,300" id="tocrossbottn">
+        </map>
+        <map name="crossbotton">
+          <area shape="rect" coords="550,170,600,230" id="upup">
+          <area shape="rect" coords="600,220,650,300" id="rightright">
+          <area shape="rect" coords="550,300,600,350" id="downdown">
+          <area shape="rect" coords="500,220,570,300" id="leftleft">
+        </map>
+        <!---->
         <map name="phoneworkmap">
           <area shape="rect" coords="550,180,720,340" id="phonenum">
         </map>
