@@ -547,6 +547,21 @@
       });
       $("#forest").hide();
       $("#bugs").hide();
+       $("#phonenum").click(function(){//切到密碼輸入圖
+          console.log("ppp");
+          $("#phonetonum").show();
+      });
+      $("#phonetonum").hide();
+      $("#num1").click(function(){console.log("1");});
+      $("#num2").click(function(){console.log("2");});
+      $("#num3").click(function(){console.log("3");});
+      $("#num4").click(function(){console.log("4");});
+      $("#num5").click(function(){console.log("5");});
+      $("#num6").click(function(){console.log("6");});
+      $("#num7").click(function(){console.log("7");});
+      $("#num8").click(function(){console.log("8");});
+      $("#num9").click(function(){console.log("9");});
+      $("#num0").click(function(){console.log("0");});
     });//onclick="phone(); onclick="door();
 
 
@@ -602,11 +617,27 @@
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="<-" id="doorTopiano">
       </div>
       <div class="col-sm-10" id="div1">
-        <img src="電話1.png" id="phone1" width="1000px" style="position: absolute; z-index:4;">
+         <img src="電話2.png" id="phonetonum" width="1000px" style="position: absolute; z-index:5;"usemap="#phonenumin">
+        <img src="電話1.png" id="phone1" width="1000px" style="position: absolute; z-index:4;" usemap="#phoneworkmap">
         <img src="門_1.png" width="1000px" height="600px" z-index="0" usemap="#workmap">
         <map name="workmap">
           <area shape="rect" coords="660,350,750,420" id="phone">
           <area shape="rect" coords="215,120,430,600" id="isAdoor">
+        </map>
+         <map name="phoneworkmap">
+          <area shape="rect" coords="550,180,720,340" id="phonenum">
+        </map>
+        <map name="phonenumin">
+          <area shape="circle" coords="635,226,50" id="num1">
+          <area shape="circle" coords="596,176,50" id="num2">
+          <area shape="circle" coords="531,159,50" id="num3">
+          <area shape="circle" coords="461,164,50" id="num4">
+          <area shape="circle" coords="405,207,50" id="num5">
+          <area shape="circle" coords="372,270,50" id="num6">
+          <area shape="circle" coords="388,328,50" id="num7">
+          <area shape="circle" coords="444,382,50" id="num8">
+          <area shape="circle" coords="505,385,50" id="num9">
+          <area shape="circle" coords="580,370,50" id="num0">
         </map>
       </div>
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="doorTodesk"></div>
