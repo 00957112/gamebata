@@ -86,6 +86,7 @@
       console.log("1");
       checkpianoclose=1;
       window.alert("bingo");
+      console.log(checkpianoclose);
       if(checkpianoclose==1){closepiano();}
     }
     function closepiano() {
@@ -97,7 +98,7 @@
       $("#Ra").off("click",);
       $("#Si").off("click",);
       $("#piano").off("click",);
-      $("#piano_p").hide(); closePianokey = 0;
+      $("#piano_p").hide(); if(checkpianoclose==1){closePianokey = 0;}
     }
     $(function () {
 
