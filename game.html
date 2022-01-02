@@ -70,8 +70,10 @@
     let counts = 0;
     let closePianokey = 1;
     let windowC = 1;
-    let phone_complete=0;
-    let getbutton=0;
+    let phone_complete = 0;
+    let getbutton = 0;
+    let putbutton = 0;
+    let button_complete = 0;
     function phonering() {
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
@@ -107,11 +109,11 @@
           cnt -= 1;
       }
       checkpianoclose = 1;
-      if (checkpianoclose == 1) { 
+      if (checkpianoclose == 1) {
         closepiano();
-        document.getElementById("pianono").setAttribute("src","鋼琴open.png");
-        $("#dialogpiano").dialog("open");
-        getbutton=1;
+        document.getElementById("pianono").setAttribute("src", "鋼琴open.png");
+        window.setTimeout(function () { $("#dialogpiano").dialog("open"); }, 1000);
+        getbutton = 1;
       }
     }
     function closepiano() {
@@ -145,6 +147,8 @@
           $("#phonetonum").hide();
           $("#phone1").hide();
           $(".dia").hide();
+          $("#corner").hide();
+          $("#cornerbotton").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
           $("#tobugs").click(
@@ -167,8 +171,8 @@
           $("#Do").click(function () {//do
             stop();
             arr[cnt] = 1;
-            if(phone_complete==1)
-              check(arr, cnt);
+            //if(phone_complete==1)
+            check(arr, cnt);
             cnt += 1;
             cnt %= 24;
             document.getElementById("do1").play();
@@ -330,6 +334,8 @@
             });
           $("#phone1").hide();
           $(".dia").hide();
+          $("#corner").hide();
+          $("#cornerbotton").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
           $("#deskAndFish").show();
@@ -370,9 +376,7 @@
                 console.log("ww");
                 $("#forest").show();
               }
-
             );
-
           }
           $("#windowAndWoods").show(),
             $("#deskAndFish").hide()
@@ -403,7 +407,7 @@
           $("#Do").click(function () {//do
             stop();
             arr[cnt] = 1;
-           if(phone_complete==1)
+            if (phone_complete == 1)
               check(arr, cnt);
             cnt += 1;
             cnt %= 24;
@@ -589,17 +593,17 @@
       let phonenum_arr = [-1, -1, -1, -1];
       let phonenum_ans = [7, 8, 4, 6];
       let phonenum_idx = 0;
-      function checkphone() {
+      function checkphone(idx) {
         console.log(phonenum_arr);
         for (let i = 3; i >= 0; i -= 1) {
-          if (phonenum_ans[i] != phonenum_arr[phonenum_idx])
+          if (phonenum_ans[i] != phonenum_arr[idx])
             return;
-          if (phonenum_idx == 0)
-            phonenum_idx = 3;
+          if (idx == 0)
+          idx = 3;
           else
-            phonenum_idx -= 1;
+          idx -= 1;
         }
-        phone_complete=1;
+        phone_complete = 1;
         document.getElementById("bee").play();
         $("#phonetonum").hide();
       }
@@ -608,7 +612,7 @@
       //-----------------暫時這樣 這個是在對話之後
       $("#phonenum").click(function () {//切到密碼輸入圖
         console.log("ppp");
-        if (dia_phone_idx == 3&&phone_complete==0)
+        if (dia_phone_idx == 3 && phone_complete == 0)
           $("#phonetonum").show();
       });
       $("#phonetonum").hide();
@@ -669,7 +673,7 @@
           return;
         document.getElementById("phonesound").play();
         phonenum_arr[phonenum_idx] = 6;
-        checkphone();
+        checkphone(phonenum_idx);
         phonenum_idx += 1;
         phonenum_idx %= 4;
         window.setTimeout(function () { phone_stop(); }, 1200);
@@ -714,34 +718,83 @@
         phonenum_idx %= 4;
         window.setTimeout(function () { phone_stop(); }, 1200);
       });
-       $("#tocorner").click(
-        function(){
-            console.log("sh...");
-            $("#corner").show();
-        }); 
-        
-        $("#tocrossbottn").click(function(){
-          console.log("btn");
-          $("#cornerbotton").show();
+      $("#tocorner").click(
+        function () {
+          console.log("sh...");
+          if (getbutton == 1 && button_complete == 0) {
+            if (putbutton == 0) {
+              $("#corner").show();
+              putbutton = 1;
+            }
+            else
+              $("#cornerbotton").show();
+          }
         });
-        $("#corner").hide();
+      $("#tocrossbottn").click(function () {
+        console.log("btn");
+        $("#cornerbotton").show();
+      });
+      $("#corner").hide();
+      $("#cornerbotton").hide();
+      let button_ans = [4, 6, 2, 8, 8, 4, 6]
+      let button_idx = 0;
+      let button_arr = [0, 0, 0, 0, 0, 0, 0]
+      function check_button(idx) {
+        console.log(button_arr);
+        for (let i = 6; i >= 0; i -= 1) {
+          if (button_ans[i] != button_arr[idx])
+            return;
+          if (idx == 0)
+            idx = 6;
+          else
+            idx -= 1;
+        }
+        button_complete = 1;
+        window.alert("bingo");
         $("#cornerbotton").hide();
-
-        $("#upup").click(
-        function(){
-            console.log("up");
+        $("#corner").hide();
+      }
+      function button_stop()
+      {
+        document.getElementById("buttonsound").pause();
+        document.getElementById("buttonsound").currentTime = 0;
+      }
+      $("#upup").click(
+        function () {
+          console.log("up");
+          button_stop();
+          document.getElementById("buttonsound").play();
+          button_arr[button_idx] = 8;
+          button_idx += 1;
+          button_idx %= 7;
         });
-        $("#rightright").click(
-        function(){
-            console.log("right");
+      $("#rightright").click(
+        function () {
+          console.log("right");
+          button_stop();
+          document.getElementById("buttonsound").play();
+          button_arr[button_idx] = 6;
+          check_button(button_idx);
+          button_idx += 1;
+          button_idx %= 7;
         });
-        $("#downdown").click(
-        function(){
-            console.log("down");
+      $("#downdown").click(
+        function () {
+          console.log("down");
+          button_stop();
+          document.getElementById("buttonsound").play();
+          button_arr[button_idx] = 2;
+          button_idx += 1;
+          button_idx %= 7;
         });
-        $("#leftleft").click(
-        function(){
-            console.log("left");
+      $("#leftleft").click(
+        function () {
+          console.log("left");
+          button_stop();
+          document.getElementById("buttonsound").play();
+          button_arr[button_idx] = 4;
+          button_idx += 1;
+          button_idx %= 7;
         });
 
     });//onclick="phone(); onclick="door();
@@ -786,6 +839,9 @@
   <audio preload="auto" id="bee">
     <source src="ox4zm-uraaj.mp3" type="audio/mpeg">
   </audio>
+  <audio preload="auto" id="buttonsound">
+    <source src="按鈕聲.mp3" type="audio/mpeg">
+  </audio>
 
   <div id="dialog" title="這是一個電話">
     <img src="電話1.png" width="650" style=" text-align: center;" id="ooo">
@@ -803,15 +859,17 @@
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="<-" id="doorTopiano">
       </div>
       <div class="col-sm-10" id="div1">
-        <img src="角落放置後.png" id="cornerbotton"  width="1000px" height="600px" style="position: absolute; z-index:7;" usemap="#crossbotton" >
-        <img src="角落.png" id="corner" width="1000px" height="600px" style="position: absolute; z-index:6;" usemap="#tocornerbotton" >
+        <img src="角落放置後.png" id="cornerbotton" width="1000px" height="600px" style="position: absolute; z-index:7;"
+          usemap="#crossbotton">
+        <img src="角落.png" id="corner" width="1000px" height="600px" style="position: absolute; z-index:6;"
+          usemap="#tocornerbotton">
         <img src="電話2.png" id="phonetonum" width="1000px" style="position: absolute; z-index:5;" usemap="#phonenumin">
         <img src="電話1.png" id="phone1" width="1000px" style="position: absolute; z-index:4;" usemap="#phoneworkmap">
         <img src="門_1.png" width="1000px" height="600px" z-index="0" usemap="#workmap">
         <map name="workmap">
           <area shape="rect" coords="660,350,750,420" id="phone">
           <area shape="rect" coords="215,120,430,600" id="isAdoor">
-           <!--下面是角落的區域-->>
+          <!--下面是角落的區域-->>
           <area shape="rect" coords="810,500,900,550" id="tocorner">
         </map>
         <!---->
