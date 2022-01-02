@@ -37,6 +37,23 @@
       height: 50%;
       position: relative;
     }
+
+    .dia {
+      border: 5px double #83540d;
+      font-size: 20px;
+      font-weight: 500;
+      background-color: rgb(223, 219, 213);
+      z-index: 10;
+      width: 900px;
+      height: 200px;
+      position: absolute;
+      top: 410px;
+      left: 300px;
+      box-sizing: border-box;
+      /*text-align: center;*/
+      opacity: 0.8;
+      margin: auto;
+    }
   </style>
   <link href="jquery-ui.css" rel="stylesheet">
   <script src="external/jquery/jquery.js"></script>
@@ -71,7 +88,7 @@
       document.getElementById("si1").pause();
       document.getElementById("si1").currentTime = 0;
     }
-    let checkpianoclose=0;
+    let checkpianoclose = 0;
     function check(arr, cnt) {
       let ans = [5, 3, 3, 4, 2, 2, 1, 2, 3, 4, 5, 5, 5, 5, 3, 3, 4, 2, 2, 1, 3, 5, 5, 1];
       console.log(arr);
@@ -84,10 +101,10 @@
           cnt -= 1;
       }
       console.log("1");
-      checkpianoclose=1;
+      checkpianoclose = 1;
       window.alert("bingo");
       console.log(checkpianoclose);
-      if(checkpianoclose==1){closepiano();}
+      if (checkpianoclose == 1) { closepiano(); }
     }
     function closepiano() {
       $("#Do").off("click",);
@@ -98,7 +115,7 @@
       $("#Ra").off("click",);
       $("#Si").off("click",);
       $("#piano").off("click",);
-      $("#piano_p").hide(); if(checkpianoclose==1){closePianokey = 0;}
+      $("#piano_p").hide(); if (checkpianoclose == 1) { closePianokey = 0; }
     }
     $(function () {
 
@@ -106,10 +123,11 @@
       $("#doorTopiano").click(
         function () {
           $("#phone1").hide();
+          $(".dia").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
           $("#tobugs").click(
-            function(){
+            function () {
               $("#bugs").show();
             }
           );
@@ -121,7 +139,7 @@
           });
           $("#piano").click(function () {//鋼琴(琴鍵)
             console.log("eee1");
-            if (closePianokey==1) { $("#piano_p").show(); }
+            if (closePianokey == 1) { $("#piano_p").show(); }
           });
           let cnt = 0;
           let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -188,7 +206,14 @@
         function () {
           $("#phone").click(function () {//電話
             if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
-            else { document.getElementById("phoncall").pause(); }
+            else {
+              document.getElementById("phoncall").pause();
+              if (document.getElementById("phoncall").currentTime != 0) {
+                document.getElementById("phoncall").currentTime = 0;
+                $("#phonedia").show();
+                $("#phonedia").click(function(){console.log("hhhh");});
+              }
+            }
             $("#phone1").show();
           });
           $("#isAdoor").click(function () {//門
@@ -213,10 +238,10 @@
       $("#windowTodesk").click(
         function () {
           $("#fishplace").click(
-            function(){
+            function () {
               console.log("f");
-            $("#dialogfish").dialog("open");
-          });
+              $("#dialogfish").dialog("open");
+            });
           $("#forest").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
@@ -276,11 +301,12 @@
       $("#doorTodesk").click(
         function () {
           $("#fishplace").click(
-            function(){
+            function () {
               console.log("f");
-            $("#dialogfish").dialog("open");
+              $("#dialogfish").dialog("open");
             });
           $("#phone1").hide();
+          $(".dia").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
           $("#deskAndFish").show();
@@ -332,7 +358,7 @@
       $("#windowTopiano").click(
         function () {
           $("#tobugs").click(
-            function(){
+            function () {
               $("#bugs").show();
             }
           );
@@ -346,7 +372,7 @@
             $("#pianono").show();
           }); $("#piano").click(function () {//鋼琴(琴鍵)
             console.log("eee1");
-            if (closePianokey==1) { $("#piano_p").show(); }
+            if (closePianokey == 1) { $("#piano_p").show(); }
 
           });
           let cnt = 0;
@@ -420,7 +446,14 @@
           closepiano();
           $("#phone").click(function () {//電話
             if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
-            else { document.getElementById("phoncall").pause(); }
+            else {
+              document.getElementById("phoncall").pause();
+              if (document.getElementById("phoncall").currentTime != 0) {
+                document.getElementById("phoncall").currentTime = 0;
+                $("#phonedia").show();
+                $("#phonedia").click(function(){console.log("hhhh");});
+              }
+            }
             $("#phone1").show();
           });
           $("#isAdoor").click(function () {//門
@@ -467,7 +500,14 @@
 
       $("#phone").click(function () {//電話
         if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
-        else { document.getElementById("phoncall").pause(); }
+        else {
+          document.getElementById("phoncall").pause();
+          if (document.getElementById("phoncall").currentTime != 0) {
+            document.getElementById("phoncall").currentTime = 0;
+            $("#phonedia").show();
+            $("#phonedia").click(function(){console.log("hhhh");});
+          }
+        }
         $("#phone1").show();
       });
       $("#isAdoor").click(function () {//門
@@ -485,6 +525,7 @@
           duration: 250
         }
       });
+      $(".dia").hide();
       $("#phone1").hide();
       $("#chair").draggable({ axis: "x" });
       $("#pianono").hide(); $("#piano_p").hide();
@@ -492,7 +533,7 @@
         function () {
           console.log('memorys');
         });
-        $("#dialogfish").dialog({
+      $("#dialogfish").dialog({
         autoOpen: false,
         modal: true, height: 150, width: 200,
         show: {
@@ -547,6 +588,10 @@
   <div id="dialog" title="這是一個電話">
     <img src="電話1.png" width="650" style=" text-align: center;" id="ooo">
 
+  </div>
+  <div id="phonedia" class="dia">
+    電話(瘋子):<br>
+    你醒了呀!來玩個遊戲吧!
   </div>
   <div id="dialogDoor" title="大門">
     <p style="text-align: center;">被鎖起來了...</p>
