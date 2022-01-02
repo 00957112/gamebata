@@ -212,6 +212,11 @@
       )
       $("#windowTodesk").click(
         function () {
+          $("#fishplace").click(
+            function(){
+              console.log("f");
+            $("#dialogfish").dialog("open");
+          });
           $("#forest").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
@@ -270,6 +275,11 @@
       //-------------------------------------
       $("#doorTodesk").click(
         function () {
+          $("#fishplace").click(
+            function(){
+              console.log("f");
+            $("#dialogfish").dialog("open");
+            });
           $("#phone1").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
@@ -482,9 +492,17 @@
         function () {
           console.log('memorys');
         });
-      $("#fishplace").click(function () {
-        console.log("fish");
-
+        $("#dialogfish").dialog({
+        autoOpen: false,
+        modal: true, height: 150, width: 200,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
       });
       $("#forest").hide();
       $("#bugs").hide();
@@ -530,8 +548,9 @@
     <img src="電話1.png" width="650" style=" text-align: center;" id="ooo">
 
   </div>
-  <div id="dialogDoor" title="說明">
-    <p>這是一扇門</p>
+  <div id="dialogDoor" title="大門">
+    <p style="text-align: center;">被鎖起來了...</p>
+    <p>門把轉了也沒有動靜</p>
   </div>
   <div class="container-fluid mt-3" id="doorAndPhone">
     <div class="row">
@@ -548,7 +567,10 @@
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="doorTodesk"></div>
     </div>
   </div>
-
+  <div id="dialogfish" title="魚缸">
+    <p>這...大概是食人魚吧</p>
+    <p>奇怪的興趣</p>
+  </div>
   <div class="container-fluid mt-3" id="deskAndFish">
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="deskTodoor"></div>
