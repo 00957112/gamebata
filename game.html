@@ -105,11 +105,12 @@
         else
           cnt -= 1;
       }
-      console.log("1");
       checkpianoclose = 1;
-      window.alert("bingo");
-      console.log(checkpianoclose);
-      if (checkpianoclose == 1) { closepiano(); }
+      if (checkpianoclose == 1) { 
+        closepiano();
+        document.getElementById("pianono").setAttribute("src","鋼琴open.png");
+        $("#dialogpiano").dialog("open");
+      }
     }
     function closepiano() {
       $("#Do").off("click",);
@@ -123,7 +124,7 @@
       $("#piano_p").hide(); if (checkpianoclose == 1) { closePianokey = 0; }
     }
     let dia_phone_idx = 0;
-    let dia_phone = ["主角:<br>?", "電話:<br>就先這樣 掰", "(嘟...)"]
+    let dia_phone = ["主角:<br>?", "電話:<br>就先這樣 掰", "<br>(嘟...)"]
     function changedia_phone() {
       if (dia_phone_idx == 3) {
         $("#phonedia").hide();
@@ -164,7 +165,8 @@
           $("#Do").click(function () {//do
             stop();
             arr[cnt] = 1;
-            check(arr, cnt);
+            if(phone_complete==1)
+              check(arr, cnt);
             cnt += 1;
             cnt %= 24;
             document.getElementById("do1").play();
@@ -399,7 +401,8 @@
           $("#Do").click(function () {//do
             stop();
             arr[cnt] = 1;
-            check(arr, cnt);
+           if(phone_complete==1)
+              check(arr, cnt);
             cnt += 1;
             cnt %= 24;
             document.getElementById("do1").play();
@@ -555,6 +558,18 @@
       $("#dialogfish").dialog({
         autoOpen: false,
         modal: true, height: 150, width: 200,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogpiano").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
         show: {
           effect: "blind",
           duration: 500
@@ -744,10 +759,9 @@
 
   <div id="dialog" title="這是一個電話">
     <img src="電話1.png" width="650" style=" text-align: center;" id="ooo">
-
   </div>
   <div id="phonedia" class="dia">
-    電話(瘋子):<br>
+    電話:<br>
     你醒了呀!來玩個遊戲吧!
   </div>
   <div id="dialogDoor" title="大門">
@@ -820,6 +834,9 @@
     </div>
   </div>
 
+  <div id="dialogpiano" title="獲得十字按鈕道具">
+    <img src="十字按鈕.png" width="120" style=" text-align: center;">
+  </div>
   <div class="container-fluid mt-3" id="pianoAndpic">
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="pianoTowindow"></div>
