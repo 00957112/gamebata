@@ -71,6 +71,7 @@
     let closePianokey = 1;
     let windowC = 1;
     let phone_complete=0;
+    let getbutton=0;
     function phonering() {
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
@@ -110,6 +111,7 @@
         closepiano();
         document.getElementById("pianono").setAttribute("src","鋼琴open.png");
         $("#dialogpiano").dialog("open");
+        getbutton=1;
       }
     }
     function closepiano() {
