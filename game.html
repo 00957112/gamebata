@@ -16,7 +16,22 @@
       text-align: center;
       background-color: rgb(53, 42, 32);
     }
+     /*------------------------------------------------*/
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
 
+    .numin {
+      text-align: center;
+      height: 100px;
+      width: 60px;
+      background-color: rgb(197, 197, 197);
+      margin: 20px;
+      font-size: 20px;
+      color: black;
+      padding: 0px;
+    }
+    /*------------------------------------------------*/
     input {
       /*按鈕*/
       background-color: #44c767;
@@ -822,6 +837,35 @@
           button_idx += 1;
           button_idx %= 7;
         });
+      //------------------------------------------------------------------------------
+      $("#tobox").click(function () {
+        $("#box").show();
+      });
+      $("#box").hide();
+      $("#lights").click(
+        function () {
+          setTimeout(
+            function () {
+              document.getElementById("boxlight").setAttribute("src", "箱子亮1.png");//亮1
+            }, 1000);
+          setTimeout(
+            function () {
+              document.getElementById("boxlight").setAttribute("src", "箱子亮2.png");//亮2
+            }, 2000);
+          setTimeout(
+            function () {
+              document.getElementById("boxlight").setAttribute("src", "箱子亮3.png");//亮3
+            }, 3000);
+          setTimeout(
+            function () {
+              document.getElementById("boxlight").setAttribute("src", "箱子亮4.png");//亮4
+            }, 4000);
+          setTimeout(
+            function () {
+              document.getElementById("boxlight").setAttribute("src", "箱子全暗.png");//回
+            }, 5000);
+        });
+        //------------------------------------------------------------------------------
 
     });//onclick="phone(); onclick="door();
 
@@ -970,6 +1014,19 @@
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="pianoTowindow"></div>
       <div class="col-sm-10">
+        <!---->
+        <div id="box" style="position: absolute; z-index: 4;">
+          <img src="箱子全暗.png" width="1000px " id="boxlight">
+          <input type="button" id="lights" value="亮"
+            style="font-size: 20px; position: absolute; left: 30%; top:4%; background-color: darkgray;">
+
+          <div style="position: absolute; top: 50%; right: 32%;"><input class="numin" type="number" min="0"
+              max="9"><input class="numin" type="number" min="0" max="9"> <input class="numin" type="number" min="0"
+              max="9"> <input class="numin" type="number" min="0" max="9">
+            <br><input type="button" style="color: black; font-weight: bolder;" value="enter" onclick="checkboxvalue()">
+          </div>
+        </div>
+        <!---->
         <img src="昆蟲標本.png" width="1000px " id="bugs" style="position: absolute; z-index: 3;">
         <img src="鋼琴視角2.png" width="1000px " id="piano_p" style="position: absolute; z-index: 2;"
           usemap="#pianodoremiworkmap">
