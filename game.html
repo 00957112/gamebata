@@ -88,10 +88,13 @@
     let closePianokey = 1;
     let windowC = 1;
     let phone_complete = 0;
+    let phone_complete2 = 0;
     //---------
     let getbutton = 0;
+    let getfairy=0;
     let putbutton = 0;
     let button_complete = 0;
+    let fishdia=0;
     function phonering() {
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
@@ -140,6 +143,32 @@
       $("#windowAndWoods").show();
       $("#floor").hide();
     }
+    function floortowindow2() {
+      $("#bugs").hide();
+      $("#phone").off("click",);
+      $("#isAdoor").off("click",);
+      $("#topiano").off("click",);
+      $("#piecepaper").hide();
+      $("#piano").off("click",);
+      $("#box").hide();
+      $("#fairy").off("click",);
+      $("#fairydia").off("click",);
+      $("#fairydia").hide();
+      $("#windowandfairy").show(),
+      $("#pianoAndpic").hide()
+      $("#pianono").hide();
+      $("#piano_p").hide();
+      $("#floor2").hide();
+      $("#windowfairy").click(function(){
+        console.log("5555");
+        document.getElementById("fairydia").innerHTML="主角:<br>好了!";
+        $("#fairydia").show();
+        $("#fairydia").click(function () {
+                fairy_dia3();
+                console.log("666666");
+            });
+      });
+    }
     let checkpianoclose = 0;
     function check(arr, cnt) {
       let ans = [5, 3, 3, 4, 2, 2, 1, 2, 3, 4, 5, 5, 5, 5, 3, 3, 4, 2, 2, 1, 3, 5, 5, 1];
@@ -185,13 +214,11 @@
       }
     }
     let dia_fairy_idx = 0;
-    let dia_fairy = ["主角:<br>?", "主角:<br>?", "主角:<br>看上去有點像史萊姆...", "主角:<br>(好奇摸了一下)", "主角:<br>居然是溫溫的...", "神祕生物:<br>#$%^&**&^%$#@...", "主角:<br>不知道牠想表達什麼..."]
+    let dia_fairy = ["主角:<br>?", "主角:<br>看上去有點像史萊姆...", "主角:<br>(好奇摸了一下)", "主角:<br>居然是溫溫的...", "神祕生物:<br>#$%^&**&^%$#@...", "主角:<br>不知道牠想表達什麼..."]
     function fairy_dia() {
-      //console.log(dia_fairy_idx);
-      if (dia_fairy_idx == 7) {
+      if (dia_fairy_idx == 6) {
         $("#fairydia").hide();
         document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&*(";
-        //dia_fairy_idx=0;
         return;
       }
       else {
@@ -202,6 +229,8 @@
     let dia_phone_idx2 = 0;
     let dia_phone2 = ["主角:<br>!", "電話:<br>再過個幾分鐘就能見面了呢!", "電話:<br>好期待呀~", "主角:<br>得快點才行(慌張)"];
     function changedia_phone2() {
+      phone_complete2 = 1;
+      document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&&^%#%";
       if (dia_phone_idx2 == 4) {
         $("#phonedia").hide();
         return;
@@ -209,6 +238,60 @@
       else {
         document.getElementById("phonedia").innerHTML = dia_phone2[dia_phone_idx2];
         dia_phone_idx2 += 1;
+      }
+    }
+    let dia_fairy_idx2 = 0;
+    let dia_fairy2 = ["主角:<br>嗯?", "主角:<br>牠的表達好像變了", "神秘生物:<br>@#$%^&&^%#%", "主角:<br>是想告訴我甚麼嗎?...", "主角:<br>但我現在得想方法拿到鑰匙才行",
+      "主角:<br>... ...", "主角:<br>啊!  難道...", "主角:<br>牠可以幫我拿嗎", "神秘生物:<br>@#^&&^%", "主角:<br>嗯!只要把牠拋上去", "<br>像這樣..."];
+    function fairy_dia2() {
+      console.log(dia_fairy_idx2);
+      if (dia_fairy_idx2 == 11) {
+        $("#fairydia").hide();
+        $("#pianoAndpic").hide();
+        document.getElementById("pianofairy").setAttribute("src", "鋼琴_1.png");
+        $("#floor2").show();
+        document.getElementById("video").play();
+        return;
+      }
+      else {
+        document.getElementById("fairydia").innerHTML = dia_fairy2[dia_fairy_idx2];
+        dia_fairy_idx2 += 1;
+      }
+    }
+    let dia_fairy_idx3 = 0;
+    let dia_fairy3 = ["主角:<br>把鑰匙給我吧!","神秘生物:<br>... ...","主角:<br>不是吧...","主角:<br>吃下去了!?",
+                      "主角:<br>快吐出來","<br>(抓起神祕生物奮力地搖)","主角:<br>沒有用...","主角:<br>怎麼辦...","主角:<br>他快要來了","主角:<br>... ...","主角:<br>...!?<br>(抓起生物)"];
+    function fairy_dia3() {
+      if (dia_fairy_idx3 == 11) {
+        $("#fairydia").hide();
+          $("#bugs").hide();
+          $("#phone").off("click",);
+          $("#isAdoor").off("click",);
+          $("#topiano").off("click",);
+          $("#piecepaper").hide();
+          $("#piano").off("click",);
+          $("#box").hide();
+          $("#fairy").off("click",);
+          $("#fairydia").off("click",);
+          $("#fairydia").hide();
+          $("#windowandfairy").hide();
+          getfairy=1;
+          closepiano();
+            $("#outwindow").click(
+              function () {
+                console.log("ww");
+                $("#forest").show();
+              }
+            );
+          $("#windowAndWoods").show(),
+            $("#pianoAndpic").hide()
+          $("#pianono").hide();
+          $("#piano_p").hide();
+        return;
+      }
+      else {
+        document.getElementById("fairydia").innerHTML = dia_fairy3[dia_fairy_idx3];
+        dia_fairy_idx3 += 1;
       }
     }
     let box_ans = "5932";
@@ -322,16 +405,13 @@
             console.log("si");
           });
           $("#fairy").click(function () {
-            if (dia_fairy_idx == 0)
+            if (dia_fairy_idx == 0&&dia_fairy_idx2==0)
               $("#fairydia").show();
             $("#fairydia").click(function () {
-              console.log(dia_fairy_idx);
-              if (dia_fairy_idx < 8) {
+              if (phone_complete2 == 0)
                 fairy_dia();
-              }
-              else {
-                fairydia().hide();
-              }
+              else
+                fairy_dia2();
             });
           });
         }
@@ -371,22 +451,43 @@
             }
           });
           $("#doorAndPhone").show(),
-            $("#deskAndFish").hide()
+            $("#deskAndFish").hide();
+            $("#fishplace").off("click",);
+            $("#fairydia").hide();
+            $("#choice").hide();
         }
       )
       $("#windowTodesk").click(
         function () {
-          $("#fishplace").click(
+          if(fishdia==1)
+          {
+            $("#fishplace").click(
             function () {
-              console.log("f");
+              $("#choice").show();});
+          }
+          else if(getfairy==1){
+            $("#fishplace").one("click",
+            function () {
+                  document.getElementById("fairydia").innerHTML="主角:<br>我想...只能這樣了...";
+                  $("#fairydia").show();
+                  fishdia=1;});
+          }
+          else
+          {
+            $("#fishplace").click(
+            function () {
               $("#dialogfish").dialog("open");
-            });
+              $("#choice").show();});
+          }
+          $("#fairydia").click(function(){
+            ("#fairydia").hide();});
           $("#forest").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
           $("#piecepaper").hide();
+          $("#windowandfairy").hide();
           $("#deskAndFish").show(),
-            $("#windowAndWoods").hide()
+            $("#windowAndWoods").hide();
           $("#chair").draggable({
             drag: function () {
               counts++; console.log(counts);
@@ -413,6 +514,7 @@
           $("#fairydia").hide();
           document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&*(";
           dia_fairy_idx = 0;
+          dia_fairy_idx2=0;
           closepiano();
           if (windowC == 1) {
             $("#windowopen").one("click", function () {
@@ -448,11 +550,29 @@
       $("#doorTodesk").click(
         function () {
           $("#phonetonum").hide();
-          $("#fishplace").click(
+          if(fishdia==1)
+          {
+            $("#fishplace").click(
             function () {
-              console.log("f");
-              $("#dialogfish").dialog("open");
-            });
+              $("#choice").show();});
+          }
+          else if(getfairy==1){
+            $("#fishplace").one("click",
+            function () {
+                  document.getElementById("fairydia").innerHTML="主角:<br>我想...只能這樣了...";
+                  $("#fairydia").show();
+                  fishdia=1;});
+          }
+          else
+          {
+            $("#fishplace").click(
+            function () {
+              $("#dialogfish").dialog("open");});
+          }
+          $("#fairydia").click(function(){
+            $("#fairydia").hide();
+            $("#choice").show();
+          });
           $("#phone1").hide();
           $(".dia").hide();
           $("#corner").hide();
@@ -479,7 +599,10 @@
         function () {
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
+          $("#fishplace").off("click",);
           $("#piecepaper").hide();
+          $("#fairydia").hide();
+          $("#choice").hide();
           if (windowC == 1) {
             $("#windowopen").one("click", function () {
               windowC = 0;
@@ -516,6 +639,7 @@
           $("#forest").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
+          $("#windowandfairy").hide();
           $("#piecepaper").hide();
           $("#pianoAndpic").show(),
             $("#windowAndWoods").hide()
@@ -588,16 +712,13 @@
             console.log("si");
           });
           $("#fairy").click(function () {
-            if (dia_fairy_idx == 0)
+            if (dia_fairy_idx == 0&&dia_fairy_idx2==0)
               $("#fairydia").show();
             $("#fairydia").click(function () {
-              console.log(dia_fairy_idx);
-              if (dia_fairy_idx < 8) {
+              if (phone_complete2 == 0)
                 fairy_dia();
-              }
-              else {
-                fairydia().hide();
-              }
+              else
+                fairy_dia2();
             });
           });
         }
@@ -615,6 +736,7 @@
           $("#fairydia").hide();
           document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&*(";
           dia_fairy_idx = 0;
+          dia_fairy_idx2=0;
           closepiano();
           $("#phone").click(function () {//電話
             if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
@@ -922,7 +1044,7 @@
         $("#doorAndPhone").hide();
         $("#floor").show();
         window.setTimeout(function () { document.getElementById("floorpic").setAttribute("src", "天花板燈彈出鑰匙.png") }, 1000);
-        window.setTimeout(function () { phonering(); }, 2000);
+        window.setTimeout(function () { phonering(); }, 3000);
       }
       function button_stop() {
         document.getElementById("buttonsound").pause();
@@ -996,7 +1118,7 @@
         });
 
       $(".hidephoto").hide();
-      
+
       $("#paperpiece").click(() => { $("#piecepaper").show(); console.log("paper"); });
       $("#piecepaper").hide();
       $("#forest").click(() => { $("#forest").hide(); });
@@ -1004,11 +1126,12 @@
       $("#piecepaper").click(() => { $("#piecepaper").hide(); });
       //------------------------------------------------------------------------------
 
-        $("#footoulock").click(()=>{$("#piecepaper").show();console.log("lock");});
+      $("#footoulock").click(() => { $("#piecepaper").show(); console.log("lock"); });
+      //$("#video").hide();
+      $("#floor2").hide();
+      $("#windowandfairy").hide();
+      $("#choice").hide();
     });//onclick="phone(); onclick="door();
-    $("fairydia").hide();
-
-
   </script>
 </head>
 
@@ -1050,7 +1173,6 @@
   <audio preload="auto" id="buttonsound">
     <source src="按鈕聲.mp3" type="audio/mpeg">
   </audio>
-
   <div id="dialog" title="這是一個電話">
     <img src="電話1.png" width="650" style=" text-align: center;" id="ooo">
   </div>
@@ -1123,6 +1245,7 @@
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="deskTodoor"></div>
       <div class="col-sm-10">
+        <img src="抉擇.png" id="choice" width="1000px" style="position: absolute; z-index:4;">
         <img src="桌子1-removebg-preview123.png" id="chair" width="180px" z-index="2"
           style="position: absolute; top: 350px;left: 340px;">
         <img src="桌子2_2.png" width="1000px" height="600px" z-index="0" usemap="#memorybook">
@@ -1184,7 +1307,7 @@
           usemap="#pianodoremiworkmap">
         <img src="鋼琴視角1.png" width="1000px " z-index="1" id="pianono" style="position: absolute;"
           usemap="#pianonoworkmap">
-        <img src="鋼琴加生物.png" width="1000px" height="600px" z-index="0" usemap="#pianoworkmap">
+        <img src="鋼琴加生物.png" width="1000px" height="600px" z-index="0" usemap="#pianoworkmap" id="pianofairy">
 
         <map name="pianoworkmap">
           <area shape="rect" coords="150,200,450,400" id="topiano">
@@ -1209,7 +1332,6 @@
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="->" id="pianoTodoor"></div>
     </div>
   </div>
-
   <div class="container-fluid mt-3" id="floor">
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" onclick="floortowindow()"></div>
@@ -1217,6 +1339,28 @@
         <img id="floorpic" src="天花板燈.png" width="1000px" height="600px" z-index="0">
       </div>
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" onclick="floortowindow()"></div>
+    </div>
+  </div>
+  <div class="container-fluid mt-3" id="floor2">
+    <div class="row">
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" onclick="floortowindow2()">
+      </div>
+      <div class="col-sm-10">
+        <video width="1000" id="video" muted>
+          <source src="我的影片.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" onclick="floortowindow2()">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt-3" id="windowandfairy">
+    <div class="row">
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="windowTodesk"></div>
+      <div class="col-sm-10">
+        <img src="窗戶加生物.png" width="1000px" id="windowfairy">
+      </div>
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
     </div>
   </div>
 
