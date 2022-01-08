@@ -16,7 +16,8 @@
       text-align: center;
       background-color: rgb(53, 42, 32);
     }
-     /*------------------------------------------------*/
+
+    /*------------------------------------------------*/
     input[type=number]::-webkit-inner-spin-button {
       -webkit-appearance: none;
     }
@@ -31,6 +32,7 @@
       color: black;
       padding: 0px;
     }
+
     /*------------------------------------------------*/
     input {
       /*按鈕*/
@@ -180,6 +182,21 @@
         dia_phone_idx += 1;
       }
     }
+    let dia_fairy_idx = 0;
+    let dia_fairy = ["主角:<br>?", "主角:<br>?", "主角:<br>看上去有點像史萊姆...", "主角:<br>(好奇摸了一下)", "主角:<br>居然是溫溫的...", "神祕生物:<br>#$%^&**&^%$#@...", "主角:<br>不知道牠想表達什麼..."]
+    function fairy_dia() {
+      //console.log(dia_fairy_idx);
+      if (dia_fairy_idx == 7) {
+        $("#fairydia").hide();
+        document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&*(";
+        //dia_fairy_idx=0;
+        return;
+      }
+      else {
+        document.getElementById("fairydia").innerHTML = dia_fairy[dia_fairy_idx];
+        dia_fairy_idx += 1;
+      }
+    }
     $(function () {
 
       //-----------------------左箭頭
@@ -212,8 +229,8 @@
           $("#Do").click(function () {//do
             stop();
             arr[cnt] = 1;
-            //if(phone_complete==1)
-            check(arr, cnt);
+            if(phone_complete==1)
+              check(arr, cnt);
             cnt += 1;
             cnt %= 24;
             document.getElementById("do1").play();
@@ -266,6 +283,19 @@
             cnt %= 24;
             document.getElementById("si1").play();
             console.log("si");
+          });
+          $("#fairy").click(function () {
+            if (dia_fairy_idx == 0)
+              $("#fairydia").show();
+            $("#fairydia").click(function () {
+              console.log(dia_fairy_idx);
+              if (dia_fairy_idx < 8) {
+                fairy_dia();
+              }
+              else {
+                fairydia().hide();
+              }
+            });
           });
         }
       )
@@ -333,6 +363,11 @@
           $("#isAdoor").off("click",);
           $("#topiano").off("click",);
           $("#piano").off("click",);
+          $("#fairy").off("click",);
+          $("#fairydia").off("click",);
+          $("#fairydia").hide();
+          document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&*(";
+          dia_fairy_idx = 0;
           closepiano();
           if (windowC == 1) {
             $("#windowopen").one("click", function () {
@@ -503,6 +538,19 @@
             document.getElementById("si1").play();
             console.log("si");
           });
+          $("#fairy").click(function () {
+            if (dia_fairy_idx == 0)
+              $("#fairydia").show();
+            $("#fairydia").click(function () {
+              console.log(dia_fairy_idx);
+              if (dia_fairy_idx < 8) {
+                fairy_dia();
+              }
+              else {
+                fairydia().hide();
+              }
+            });
+          });
         }
       )
       $("#pianoTodoor").click(
@@ -512,6 +560,11 @@
           $("#piano_p").hide();
           $("#topiano").off("click",);
           $("#piano").off("click",);
+          $("#fairy").off("click",);
+          $("#fairydia").off("click",);
+          $("#fairydia").hide();
+          document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&*(";
+          dia_fairy_idx = 0;
           closepiano();
           $("#phone").click(function () {//電話
             if (tostart) { intervalId = window.setInterval(phonering, 15000); tostart = 0; }
@@ -865,12 +918,11 @@
               document.getElementById("boxlight").setAttribute("src", "箱子全暗.png");//回
             }, 5000);
         });
-       
-        $(".hidephoto").hide();
-      //------------------------------------------------------------------------------
-        $("#fairy").click(()=>{console.log("神祕生物");})
-    });//onclick="phone(); onclick="door();
 
+      $(".hidephoto").hide();
+      //------------------------------------------------------------------------------
+    });//onclick="phone(); onclick="door();
+    $("fairydia").hide();
 
 
   </script>
@@ -925,6 +977,9 @@
   <div id="dialogDoor" title="大門">
     <p style="text-align: center;">被鎖起來了...</p>
     <p>門把轉了也沒有動靜</p>
+  </div>
+  <div id="fairydia" class="dia">
+    神祕生物:<br>@#$%^&*(
   </div>
   <div class="container-fluid mt-3" id="doorAndPhone">
     <div class="row">
@@ -1069,13 +1124,13 @@
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" onclick="floortowindow()"></div>
     </div>
   </div>
-  
+
   <!--預先載入圖-->
   <img src="箱子亮1.png" class="hidephoto">
   <img src="箱子亮2.png" class="hidephoto">
   <img src="箱子亮3.png" class="hidephoto">
   <img src="箱子亮4.png" class="hidephoto">
-  
+
 </body>
 
 </html>
