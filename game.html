@@ -996,13 +996,15 @@
         });
 
       $(".hidephoto").hide();
-      //------------------------------------------------------------------------------
+      
       $("#paperpiece").click(() => { $("#piecepaper").show(); console.log("paper"); });
       $("#piecepaper").hide();
       $("#forest").click(() => { $("#forest").hide(); });
       $("#bugs").click(() => { $("#bugs").hide(); });
       $("#piecepaper").click(() => { $("#piecepaper").hide(); });
+      //------------------------------------------------------------------------------
 
+        $("#footoulock").click(()=>{$("#piecepaper").show();console.log("lock");});
     });//onclick="phone(); onclick="door();
     $("fairydia").hide();
 
@@ -1080,6 +1082,8 @@
           <area shape="rect" coords="215,120,430,600" id="isAdoor">
           <!--下面是角落的區域-->
           <area shape="rect" coords="810,500,900,550" id="tocorner">
+          <!---->
+          <area shape="rect" coords="580,490,590,520" id="footoulock">
         </map>
         <!---->
         <map name="tocornerbotton">
