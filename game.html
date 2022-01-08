@@ -88,6 +88,7 @@
     let closePianokey = 1;
     let windowC = 1;
     let phone_complete = 0;
+    //---------
     let getbutton = 0;
     let putbutton = 0;
     let button_complete = 0;
@@ -175,6 +176,7 @@
     function changedia_phone() {
       if (dia_phone_idx == 3) {
         $("#phonedia").hide();
+        document.getElementById("phonedia").innerHTML = "電話:<br>我快到了~";
         return;
       }
       else {
@@ -197,6 +199,39 @@
         dia_fairy_idx += 1;
       }
     }
+    let dia_phone_idx2 = 0;
+    let dia_phone2 = ["主角:<br>!", "電話:<br>再過個幾分鐘就能見面了呢!", "電話:<br>好期待呀~", "主角:<br>得快點才行(慌張)"];
+    function changedia_phone2() {
+      if (dia_phone_idx2 == 4) {
+        $("#phonedia").hide();
+        return;
+      }
+      else {
+        document.getElementById("phonedia").innerHTML = dia_phone2[dia_phone_idx2];
+        dia_phone_idx2 += 1;
+      }
+    }
+    let box_ans = "5932";
+    let magnet = 0;
+    function checkboxvalue() {
+      let boxnum = document.getElementById("boxnum1").value;
+      boxnum += document.getElementById("boxnum2").value;
+      boxnum += document.getElementById("boxnum3").value;
+      boxnum += document.getElementById("boxnum4").value;
+      console.log(boxnum);
+      if (boxnum == box_ans) {
+        $("#box").hide();
+        $("#dialogbox").dialog("open");
+        magnet = 1;
+        return;
+      }
+      else {
+        document.getElementById("boxnum1").value = "";
+        document.getElementById("boxnum2").value = "";
+        document.getElementById("boxnum3").value = "";
+        document.getElementById("boxnum4").value = "";
+      }
+    }
     $(function () {
 
       //-----------------------左箭頭
@@ -209,6 +244,8 @@
           $("#cornerbotton").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
+          $("#phonedia").off("click",);
+          $("#phonedia").hide();
           $("#tobugs").click(
             function () {
               $("#bugs").show();
@@ -229,7 +266,7 @@
           $("#Do").click(function () {//do
             stop();
             arr[cnt] = 1;
-            if(phone_complete==1)
+            if (phone_complete == 1)
               check(arr, cnt);
             cnt += 1;
             cnt %= 24;
@@ -308,7 +345,12 @@
               if (document.getElementById("phoncall").currentTime != 0) {
                 document.getElementById("phoncall").currentTime = 0;
                 $("#phonedia").show();
-                $("#phonedia").click(function () { changedia_phone(); });
+                $("#phonedia").click(function () {
+                  if (getbutton)
+                    changedia_phone2();
+                  else
+                    changedia_phone();
+                });
               }
             }
             $("#phone1").show();
@@ -342,6 +384,7 @@
           $("#forest").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
+          $("#piecepaper").hide();
           $("#deskAndFish").show(),
             $("#windowAndWoods").hide()
           $("#chair").draggable({
@@ -362,7 +405,9 @@
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
           $("#topiano").off("click",);
+          $("#piecepaper").hide();
           $("#piano").off("click",);
+          $("#box").hide();
           $("#fairy").off("click",);
           $("#fairydia").off("click",);
           $("#fairydia").hide();
@@ -414,6 +459,8 @@
           $("#cornerbotton").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
+          $("#phonedia").off("click",);
+          $("#phonedia").hide();
           $("#deskAndFish").show();
           $("#doorAndPhone").hide()
           $("#chair").draggable({
@@ -432,6 +479,7 @@
         function () {
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
+          $("#piecepaper").hide();
           if (windowC == 1) {
             $("#windowopen").one("click", function () {
               windowC = 0;
@@ -468,6 +516,7 @@
           $("#forest").hide();
           $("#phone").off("click",);
           $("#isAdoor").off("click",);
+          $("#piecepaper").hide();
           $("#pianoAndpic").show(),
             $("#windowAndWoods").hide()
           $("#topiano").click(function () {//鋼琴(近)
@@ -558,6 +607,7 @@
           $("#bugs").hide();
           $("#pianono").hide();
           $("#piano_p").hide();
+          $("#box").hide();
           $("#topiano").off("click",);
           $("#piano").off("click",);
           $("#fairy").off("click",);
@@ -573,7 +623,12 @@
               if (document.getElementById("phoncall").currentTime != 0) {
                 document.getElementById("phoncall").currentTime = 0;
                 $("#phonedia").show();
-                $("#phonedia").click(function () { changedia_phone(); });
+                $("#phonedia").click(function () {
+                  if (getbutton)
+                    changedia_phone2();
+                  else
+                    changedia_phone();
+                });
               }
             }
             $("#phone1").show();
@@ -626,7 +681,12 @@
           if (document.getElementById("phoncall").currentTime != 0) {
             document.getElementById("phoncall").currentTime = 0;
             $("#phonedia").show();
-            $("#phonedia").click(function () { changedia_phone(); });
+            $("#phonedia").click(function () {
+              if (getbutton)
+                changedia_phone2();
+              else
+                changedia_phone();
+            });
           }
         }
         $("#phone1").show();
@@ -667,6 +727,18 @@
         }
       });
       $("#dialogpiano").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogbox").dialog({
         autoOpen: false,
         modal: true, height: 200, width: 250,
         show: {
@@ -837,10 +909,12 @@
         for (let i = 6; i >= 0; i -= 1) {
           if (button_ans[i] != button_arr[idx])
             return;
-          if (idx == 0)
-            idx = 6;
-          else
-            idx -= 1;
+          else {
+            if (idx == 0)
+              idx = 6;
+            else
+              idx -= 1;
+          }
         }
         button_complete = 1;
         $("#cornerbotton").hide();
@@ -848,6 +922,7 @@
         $("#doorAndPhone").hide();
         $("#floor").show();
         window.setTimeout(function () { document.getElementById("floorpic").setAttribute("src", "天花板燈彈出鑰匙.png") }, 1000);
+        window.setTimeout(function () { phonering(); }, 2000);
       }
       function button_stop() {
         document.getElementById("buttonsound").pause();
@@ -892,7 +967,8 @@
         });
       //------------------------------------------------------------------------------
       $("#tobox").click(function () {
-        $("#box").show();
+        if (magnet == 0)
+          $("#box").show();
       });
       $("#box").hide();
       $("#lights").click(
@@ -907,11 +983,11 @@
             }, 2000);
           setTimeout(
             function () {
-              document.getElementById("boxlight").setAttribute("src", "箱子亮3.png");//亮3
+              document.getElementById("boxlight").setAttribute("src", "箱子亮4.png");//亮3
             }, 3000);
           setTimeout(
             function () {
-              document.getElementById("boxlight").setAttribute("src", "箱子亮4.png");//亮4
+              document.getElementById("boxlight").setAttribute("src", "箱子亮3.png");//亮4
             }, 4000);
           setTimeout(
             function () {
@@ -921,12 +997,12 @@
 
       $(".hidephoto").hide();
       //------------------------------------------------------------------------------
-        $("#paperpiece").click(()=>{$("#piecepaper").show();console.log("paper");});
-        $("#piecepaper").hide();
-        $("#forest").click(()=>{$("#forest").hide();});
-        $("#bugs").click(()=>{$("#bugs").hide();});
-        $("#piecepaper").click(()=>{$("#piecepaper").hide();});
-      
+      $("#paperpiece").click(() => { $("#piecepaper").show(); console.log("paper"); });
+      $("#piecepaper").hide();
+      $("#forest").click(() => { $("#forest").hide(); });
+      $("#bugs").click(() => { $("#bugs").hide(); });
+      $("#piecepaper").click(() => { $("#piecepaper").hide(); });
+
     });//onclick="phone(); onclick="door();
     $("fairydia").hide();
 
@@ -1074,8 +1150,11 @@
     </div>
   </div>
 
-  <div id="dialogpiano" title="獲得十字按鈕道具">
+  <div id="dialogpiano" title="獲得道具:十字按鈕">
     <img src="十字按鈕.png" width="120" style=" text-align: center;">
+  </div>
+  <div id="dialogbox" title="獲得道具:磁鐵">
+    <img src="磁鐵.png" width="120" style=" text-align: center;">
   </div>
   <div class="container-fluid mt-3" id="pianoAndpic">
     <div class="row">
@@ -1087,9 +1166,11 @@
           <input type="button" id="lights" value="亮"
             style="font-size: 20px; position: absolute; left: 30%; top:4%; background-color: darkgray;">
 
-          <div style="position: absolute; top: 50%; right: 32%;"><input class="numin" type="number" min="0"
-              max="9"><input class="numin" type="number" min="0" max="9"> <input class="numin" type="number" min="0"
-              max="9"> <input class="numin" type="number" min="0" max="9">
+          <div style="position: absolute; top: 50%; right: 32%;">
+            <input class="numin" type="number" min="0" max="9" id="boxnum1">
+            <input class="numin" type="number" min="0" max="9" id="boxnum2">
+            <input class="numin" type="number" min="0" max="9" id="boxnum3">
+            <input class="numin" type="number" min="0" max="9" id="boxnum4">
             <br><input type="button" style="color: black; font-weight: bolder;" value="enter" onclick="checkboxvalue()">
           </div>
         </div>
