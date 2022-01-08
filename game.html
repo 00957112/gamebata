@@ -921,6 +921,12 @@
 
       $(".hidephoto").hide();
       //------------------------------------------------------------------------------
+        $("#paperpiece").click(()=>{$("#piecepaper").show();console.log("paper");});
+        $("#piecepaper").hide();
+        $("#forest").click(()=>{$("#forest").hide();});
+        $("#bugs").click(()=>{$("#bugs").hide();});
+        $("#piecepaper").click(()=>{$("#piecepaper").hide();});
+      
     });//onclick="phone(); onclick="door();
     $("fairydia").hide();
 
@@ -1053,11 +1059,15 @@
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="windowTodesk"></div>
       <div class="col-sm-10">
+        <!---->
+        <img id="piecepaper" src="紙片.png" width="1000px" style="position: absolute;z-index:4;">
         <img id="forest" src="樹林.png" width="1000px" height="600px" style="position: absolute;z-index:3;">
         <img id="towindow" src="窗簾_1.png" width="1000px" height="600px" z-index="0" usemap="#windowwork">
         <map name="windowwork">
           <area shape="rect" coords="500,100,750,450" id="windowopen">
           <area shape="rect" coords="250,100,499,450" id="outwindow">
+          <!---->
+          <area shape="rect" coords="720,530,770,570" id="paperpiece">
         </map>
       </div>
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
