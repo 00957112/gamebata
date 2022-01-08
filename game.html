@@ -865,8 +865,10 @@
               document.getElementById("boxlight").setAttribute("src", "箱子全暗.png");//回
             }, 5000);
         });
-        //------------------------------------------------------------------------------
+       
         $(".hidephoto").hide();
+      //------------------------------------------------------------------------------
+        $("#fairy").click(()=>{console.log("神祕生物");})
     });//onclick="phone(); onclick="door();
 
 
@@ -1032,13 +1034,14 @@
           usemap="#pianodoremiworkmap">
         <img src="鋼琴視角1.png" width="1000px " z-index="1" id="pianono" style="position: absolute;"
           usemap="#pianonoworkmap">
-        <img src="鋼琴_1.png" width="1000px" height="600px" z-index="0" usemap="#pianoworkmap">
+        <img src="鋼琴加生物.png" width="1000px" height="600px" z-index="0" usemap="#pianoworkmap">
 
         <map name="pianoworkmap">
           <area shape="rect" coords="150,200,450,400" id="topiano">
           <area shape="rect" coords="540,80,710,210" id="tobugs">
-           <!---->
           <area shape="rect" coords="800,450,880,530" id="tobox">
+          <!---->
+          <area shape="rect" coords="500,450,600,530" id="fairy">
         </map>
         <map name="pianonoworkmap">
           <area shape="rect" coords="100,200,750,300" id="piano">
