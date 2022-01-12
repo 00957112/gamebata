@@ -137,6 +137,7 @@
           function () {
             console.log("ww");
             $("#forest").show();
+            $("#windowAndWoods").hide();
           }
         );
       }
@@ -284,6 +285,7 @@
           function () {
             console.log("ww");
             $("#forest").show();
+            $("#windowAndWoods").hide();
           }
         );
         $("#windowAndWoods").show(),
@@ -335,6 +337,7 @@
           $("#tobugs").click(
             function () {
               $("#bugs").show();
+              $("#pianoAndpic").show();
             }
           );
           $("#pianoAndpic").show(),
@@ -546,6 +549,7 @@
               function () {
                 console.log("ww");
                 $("#forest").show();
+                $("#windowAndWoods").hide();
               }
 
             );
@@ -634,6 +638,7 @@
               function () {
                 console.log("ww");
                 $("#forest").show();
+                $("#windowAndWoods").hide();
               }
             );
           }
@@ -646,6 +651,7 @@
           $("#tobugs").click(
             function () {
               $("#bugs").show();
+              $("#pianoAndpic").show();
             }
           );
           $("#forest").hide();
@@ -1131,11 +1137,11 @@
 
       $(".hidephoto").hide();
 
-      $("#paperpiece").click(() => { $("#piecepaper").show(); console.log("paper"); });
+      $("#paperpiece").click(() => { $("#piecepaper").show();$("#windowAndWoods").hide(); console.log("paper"); });
       $("#piecepaper").hide();
-      $("#forest").click(() => { $("#forest").hide(); });
-      $("#bugs").click(() => { $("#bugs").hide(); });
-      $("#piecepaper").click(() => { $("#piecepaper").hide(); });
+      $("#forest").click(() => { $("#forest").hide(); $("#windowAndWoods").show(); });
+      $("#bugs").click(() => { $("#bugs").hide();$("#pianoAndpic").show(); });
+      $("#piecepaper").click(() => { $("#piecepaper").hide();$("#windowAndWoods").show(); });
       //------------------------------------------------------------------------------
 
       $("#footoulock").click(() => { $("#piecepaper").show(); console.log("lock"); });
@@ -1280,9 +1286,6 @@
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="windowTodesk"></div>
       <div class="col-sm-10">
-        <!---->
-        <img id="piecepaper" src="紙片.png" width="1000px" style="position: absolute;z-index:4;">
-        <img id="forest" src="樹林.png" width="1000px" height="600px" style="position: absolute;z-index:3;">
         <img id="towindow" src="窗簾_1.png" width="1000px" height="600px" z-index="0" usemap="#windowwork">
         <map name="windowwork">
           <area shape="rect" coords="500,100,750,450" id="windowopen">
@@ -1290,6 +1293,29 @@
           <!---->
           <area shape="rect" coords="720,530,770,570" id="paperpiece">
         </map>
+      </div>
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
+    </div>
+  </div>
+  
+  <!--改-->
+  <div class="container-fluid mt-3" id="forest">
+    <div class="row">
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="windowTodesk"></div>
+      <div class="col-sm-10">
+        <!---->
+        <img  src="樹林.png" width="1000px" height="600px" >
+      </div>
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-3" id="piecepaper">
+    <div class="row">
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="windowTodesk"></div>
+      <div class="col-sm-10">
+        <!---->
+        <img  src="紙片.png" width="1000px" >
       </div>
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
     </div>
@@ -1319,8 +1345,6 @@
             <br><input type="button" style="color: black; font-weight: bolder;" value="enter" onclick="checkboxvalue()">
           </div>
         </div>
-        <!---->
-        <img src="昆蟲標本.png" width="1000px " id="bugs" style="position: absolute; z-index: 3;">
         <img src="鋼琴視角2.png" width="1000px " id="piano_p" style="position: absolute; z-index: 2;"
           usemap="#pianodoremiworkmap">
         <img src="鋼琴視角1.png" width="1000px " z-index="1" id="pianono" style="position: absolute;"
@@ -1346,6 +1370,17 @@
           <area shape="rect" coords="591,100,650,420" id="Ra">
           <area shape="rect" coords="651,100,710,420" id="Si">
         </map>
+      </div>
+      <div class="col-sm-1"> <input style="text-align: center;" type="button" value="->" id="pianoTodoor"></div>
+    </div>
+  </div>
+  
+  <div class="container-fluid mt-3" id="bugs">
+    <div class="row">
+      <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="pianoTowindow"></div>
+      <div class="col-sm-10">
+        <!---->
+        <img src="昆蟲標本.png" width="1000px ">
       </div>
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="->" id="pianoTodoor"></div>
     </div>
