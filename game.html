@@ -192,7 +192,8 @@
     let button_complete = 0;
     let fishdia = 0;
     let footoukey=0;
-    let footou=0;
+    let footou=1;
+    let breakdoor=0;
     function phonering() {
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
@@ -292,6 +293,7 @@
       $("#think").click(function(){
         console.log("k");
         $("#choose").hide();
+        $(".ending")[0].click();
       })
     }
     let checkpianoclose = 0;let ans;
@@ -603,8 +605,13 @@
             $("#phone1").show();
           });
           $("#isAdoor").click(function () {//門
-            if(footou==1){
+            if(breakdoor==1)
+            {
+              $(".ending")[2].click();
+            }
+            else if(footou==1){
               $("#door").attr("src","破門.png");
+              breakdoor=1;
               console.log("win");
             }
             else
@@ -645,7 +652,7 @@
                 }
                 else
                 {
-
+                  $(".ending")[1].click();
                 }
               });
           }
@@ -760,7 +767,7 @@
                 }
                 else
                 {
-
+                  $(".ending")[1].click();
                 }
               });
           }
@@ -971,8 +978,13 @@
             $("#phone1").show();
           });
           $("#isAdoor").click(function () {//門
-            if(footou==1){
+            if(breakdoor==1)
+            {
+              $(".ending")[2].click();
+            }
+            else if(footou==1){
               $("#door").attr("src","破門.png");
+              breakdoor=1;
               console.log("win");
             }
             else
@@ -1034,8 +1046,13 @@
         $("#phone1").show();
       });
       $("#isAdoor").click(function () {//門
-            if(footou==1){
+        if(breakdoor==1)
+            {
+              $(".ending")[2].click();
+            }
+            else if(footou==1){
               $("#door").attr("src","破門.png");
+              breakdoor=1;
               console.log("win");
             }
             else
@@ -1692,8 +1709,7 @@
     <div class="row">
       <div class="col-sm-1"></div>
       <div id="choice"><img src="抉擇.png" width="1000px"></div>
-      <div class="col-sm-10">
-        
+      <div class="col-sm-10">        
         <div class="opt" id="throw">丟下去</div>
         <div class="opt" id="think">再想想</div>
       </div>
@@ -1707,6 +1723,9 @@
   <img src="箱子亮4.png" class="hidephoto">
   <img src="染血魚缸.png" class="hidephoto">
   <img src="破門.png" class="hidephoto">
+  <a href="Bad Ending2.html" class="ending"></a>
+  <a href="Bad Ending.html" class="ending"></a>
+  <a href="Happy Ending.html" class="ending"></a>
 </body>
 
 </html>
