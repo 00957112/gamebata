@@ -95,6 +95,7 @@
     let putbutton = 0;
     let button_complete = 0;
     let fishdia = 0;
+    let footoukey=0;
     function phonering() {
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
@@ -885,6 +886,18 @@
           duration: 250
         }
       });
+      $("#dialogKeyhole").dialog({
+            autoOpen: false,
+            modal: true, height: 140,
+            show: {
+              effect: "blind",
+              duration: 500
+            },
+            hide: {
+              effect: "blind",
+              duration: 250
+            }
+          });
       $(".dia").hide();
       $("#phone1").hide();
       $("#chair").draggable({ axis: "x" });
@@ -918,6 +931,18 @@
         }
       });
       $("#dialogbox").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogfootou").dialog({
         autoOpen: false,
         modal: true, height: 200, width: 250,
         show: {
@@ -1183,11 +1208,17 @@
       $("#piecepaper").click(() => { $("#piecepaper").hide(); $("#windowAndWoods").show(); });
       //------------------------------------------------------------------------------
 
-      $("#footoulock").click(() => { $("#piecepaper").show(); console.log("lock"); });
+      $("#footoulock").click(() => { 
+        if(footoukey)
+          $("#dialogfootou").dialog("open"); 
+        else
+          $("#dialogKeyhole").dialog("open"); 
+        console.log("lock"); });
       //$("#video").hide();
       $("#floor2").hide();
       $("#windowandfairy").hide();
       $("#choice").hide();
+      $("#footou").hide();
     });//onclick="phone(); onclick="door();
   </script>
 </head>
@@ -1243,11 +1274,15 @@
     <p style="text-align: center;">被鎖起來了...</p>
     <p>門把轉了也沒有動靜</p>
   </div>
-
+  <div id="dialogKeyhole" title="鑰匙孔">
+    <p style="text-align: center;">也許等找到鑰匙可以來試試</p>
+  </div>
   <div id="fairydia" class="dia">
     神祕生物:<br>@#$%^&*(
   </div>
-
+  <div id="dialogfootou" title="獲得道具:斧頭">
+    <img src="ax_PNG9100.png" width="120" style=" text-align: center;">
+  </div>
   <div class="container-fluid mt-3" id="doorAndPhone">
     <div class="row">
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="<-" id="doorTopiano">
