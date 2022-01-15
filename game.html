@@ -174,9 +174,11 @@
      $("#phonedia").hide();
      $("#deskAndFish").hide();
     $("#loadingimg").show();
-      });
+    $("#doorAndPhone").hide();
+    window.setTimeout(()=>{
     $(function () {
       $("#loadingimg").hide();
+      $("#doorAndPhone").show();
        let intervalId;
     let counts = 0;
     let closePianokey = 1;
@@ -1405,7 +1407,9 @@
       $("#choose").hide();
       //-----
       //$("#doorAndPhone").hide();
-    });//onclick="phone(); onclick="door();
+    })},3000);//onclick="phone(); onclick="door();
+    });
+   
   </script>
 </head>
 
