@@ -68,8 +68,8 @@
       width: 900px;
       height: 200px;
       position: absolute;
-      top: 410px;
-      left: 300px;
+      top: 55%;
+      left: 24%;
       box-sizing: border-box;
       text-align: center;
       opacity: 0.8;
@@ -77,10 +77,17 @@
     }
     #choose
     {
-      background-color: black;
       width:1000px; 
       height:600px;
       box-sizing: border-box;
+    }
+    #choice
+    {
+      width:calc(100%);
+      position: relative;
+      z-index:4;
+      box-sizing: border-box;
+      text-align: center;
     }
     .opt
     {
@@ -119,13 +126,14 @@
     let windowC = 1;
     let phone_complete = 0;
     let phone_complete2 = 0;
-    //---------
     let getbutton = 0;
     let getfairy = 0;
+    let magnet = 0;
     let putbutton = 0;
     let button_complete = 0;
     let fishdia = 0;
     let footoukey=0;
+    let footou=0;
     function phonering() {
       window.clearInterval(intervalId); document.getElementById("phoncall").play();
     }
@@ -201,6 +209,32 @@
         });
       });
     }
+    function fishtochoose()
+    {
+      $("#deskAndFish").hide();
+      $("#fishplace").off("click",);
+      $("#fairydia").hide();
+      $("#think").hide();
+      $("#throw").hide();
+      $("#choose").show();
+      $("#choice").show();
+      $("#choice").click(function(){
+        $("#choose").attr("style","background-color:black");
+        $("#choice").hide();
+        $("#think").show();
+        $("#throw").show();
+      });
+      $("#throw").click(function(){
+        console.log("t");
+        $("#deskpic").attr("src","染血魚缸.png");
+        $("#choose").hide();
+        $("#windowTodesk").trigger("click");
+      })
+      $("#think").click(function(){
+        console.log("k");
+        $("#choose").hide();
+      })
+    }
     let checkpianoclose = 0;let ans;
     function check(arr, cnt) {
       console.log(arr);
@@ -249,6 +283,7 @@
     let dia_fairy_idx = 0;
     let dia_fairy = ["主角:<br>?", "主角:<br>看上去有點像史萊姆...", "主角:<br>(好奇摸了一下)", "主角:<br>居然是溫溫的...", "神祕生物:<br>#$%^&**&^%$#@...", "主角:<br>不知道牠想表達什麼..."]
     function fairy_dia() {
+      console.log(dia_fairy_idx);
       if (dia_fairy_idx == 6) {
         $("#fairydia").hide();
         document.getElementById("fairydia").innerHTML = "神祕生物:<br>@#$%^&*(";
@@ -370,7 +405,6 @@
       });
     }
     let box_ans;
-    let magnet = 0;
     function checkboxvalue() {
       let boxnum = document.getElementById("boxnum1").value;
       boxnum += document.getElementById("boxnum2").value;
@@ -512,7 +546,11 @@
             $("#phone1").show();
           });
           $("#isAdoor").click(function () {//門
-            $("#dialogDoor").dialog("open");
+            if(footou==1){
+              console.log("win");
+            }
+            else
+              $("#dialogDoor").dialog("open");
           });
           $("#dialogDoor").dialog({
             autoOpen: false,
@@ -538,7 +576,19 @@
           if (fishdia == 1) {
             $("#fishplace").click(
               function () {
-                $("#choice").show();
+                console.log("123");
+                if(magnet==1)
+                {
+                  if(footoukey==0)
+                  {
+                    $("#dialogKey").dialog("open");
+                    footoukey=1;
+                  }
+                }
+                else
+                {
+
+                }
               });
           }
           else if (getfairy == 1) {
@@ -549,17 +599,20 @@
                 fishdia = 1;
               });
           }
-          else {/*
-            $("#fishplace").click(
-            function () {
-              $("#dialogfish").dialog("open");
-              $("#choice").show();});
-*/
+          else {
             $("#fishplace").click(
               function () {
                 $("#dialogfish").dialog("open");
               });
           }
+          $("#fairydia").click(function () {
+            $("#fairydia").hide();
+            if (getfairy == 1) {fishtochoose(); }
+          });
+          /*$("#choice").click(function(){
+            $("#deskAndFish").hide();
+            $("#choose").show();
+          });*/
           $("#fairydia").click(
             function () {
               $("#fairydia").hide();
@@ -636,10 +689,22 @@
         function () {
           $("#phonetonum").hide();
           if (fishdia == 1) {
-            /*$("#fishplace").click(
+            $("#fishplace").click(
               function () {
-                $("#choice").show();
-              });*/
+                console.log("123");
+                if(magnet==1)
+                {
+                  if(footoukey==0)
+                  {
+                    $("#dialogKey").dialog("open");
+                    footoukey=1;
+                  }
+                }
+                else
+                {
+
+                }
+              });
           }
           else if (getfairy == 1) {
             $("#fishplace").one("click",
@@ -657,8 +722,12 @@
           }
           $("#fairydia").click(function () {
             $("#fairydia").hide();
-            if (getfairy == 1) { $("#choice").show(); }
+            if (getfairy == 1) { fishtochoose(); }
           });
+          /*$("#choice").click(function(){
+            $("#deskAndFish").hide();
+            $("#choose").show();
+          });*/
           $("#phone1").hide();
           $(".dia").hide();
           $("#corner").hide();
@@ -844,7 +913,11 @@
             $("#phone1").show();
           });
           $("#isAdoor").click(function () {//門
-            $("#dialogDoor").dialog("open");
+            if(footou==1){
+              console.log("win");
+            }
+            else
+              $("#dialogDoor").dialog("open");
           });
           $("#dialogDoor").dialog({
             autoOpen: false,
@@ -973,6 +1046,18 @@
         }
       });
       $("#dialogfootou").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogKey").dialog({
         autoOpen: false,
         modal: true, height: 200, width: 250,
         show: {
@@ -1240,7 +1325,13 @@
 
       $("#footoulock").click(() => { 
         if(footoukey)
-          $("#dialogfootou").dialog("open"); 
+        {
+          if(footou==0)
+          {
+            $("#dialogfootou").dialog("open"); 
+            footou=1;
+          }
+        }
         else
           $("#dialogKeyhole").dialog("open"); 
         console.log("lock"); });
@@ -1249,8 +1340,9 @@
       $("#windowandfairy").hide();
       $("#choice").hide();
       $("#footou").hide();
-      //
-      $("#doorAndPhone").hide();
+      $("#choose").hide();
+      //-----
+      //$("#doorAndPhone").hide();
     });//onclick="phone(); onclick="door();
   </script>
 </head>
@@ -1315,6 +1407,9 @@
   <div id="dialogfootou" title="獲得道具:斧頭">
     <img src="ax_PNG9100.png" width="120" style=" text-align: center;">
   </div>
+  <div id="dialogKey" title="獲得道具:鑰匙">
+    <img src="ax_PNG9100.png" width="120" style=" text-align: center;">
+  </div>
   <div class="container-fluid mt-3" id="doorAndPhone">
     <div class="row">
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="<-" id="doorTopiano">
@@ -1375,10 +1470,9 @@
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="deskTodoor"></div>
       <div class="col-sm-10">
-        <img src="抉擇.png" id="choice" width="1000px" style="position: absolute; z-index:4;">
         <img src="桌子1-removebg-preview123.png" id="chair" width="180px" z-index="2"
           style="position: absolute; top: 350px;left: 340px;">
-        <img src="桌子2_2.png" width="1000px" height="600px" z-index="0" usemap="#memorybook">
+        <img src="桌子2_2.png" width="1000px" height="600px" z-index="0" usemap="#memorybook" id="deskpic">
         <map name="memorybook">
           <area shape="rect" coords="230,350,360,380" id="Mbook">
           <area shape="rect" coords="610,250,870,400" id="fishplace">
@@ -1529,7 +1623,9 @@
   <div class="container-fluid mt-3" id="choose" >
     <div class="row">
       <div class="col-sm-1"></div>
+      <div id="choice"><img src="抉擇.png" width="1000px"></div>
       <div class="col-sm-10">
+        
         <div class="opt" id="throw">丟下去</div>
         <div class="opt" id="think">再想想</div>
       </div>
