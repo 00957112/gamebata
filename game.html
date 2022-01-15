@@ -75,7 +75,37 @@
       opacity: 0.8;
       margin: auto;
     }
-  </style>
+    #choose
+    {
+      background-color: black;
+      width:1000px; 
+      height:600px;
+      box-sizing: border-box;
+    }
+    .opt
+    {
+      font-size: 75px;
+      font-family: cwTeXFangSong;
+      color:red;
+      width:calc(100%/2);
+      text-align: center;
+      position: relative;
+      top:+200px;
+      box-sizing: border-box;
+    }
+    #throw
+    {
+      float: left;
+    }
+    #think
+    {
+      float: right;
+    }
+    .opt:hover
+    {
+      font-size: 120px;
+    }
+      </style>
   <link href="jquery-ui.css" rel="stylesheet">
   <script src="external/jquery/jquery.js"></script>
   <script src="jquery-ui.js"></script>
@@ -1219,6 +1249,8 @@
       $("#windowandfairy").hide();
       $("#choice").hide();
       $("#footou").hide();
+      //
+      $("#doorAndPhone").hide();
     });//onclick="phone(); onclick="door();
   </script>
 </head>
@@ -1494,6 +1526,16 @@
     </div>
   </div>
 
+  <div class="container-fluid mt-3" id="choose" >
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="opt" id="throw">丟下去</div>
+        <div class="opt" id="think">再想想</div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
   <!--預先載入圖-->
   <img src="箱子亮1.png" class="hidephoto">
   <img src="箱子亮2.png" class="hidephoto">
