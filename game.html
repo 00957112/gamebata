@@ -547,6 +547,7 @@
           });
           $("#isAdoor").click(function () {//門
             if(footou==1){
+              $("#door").attr("src","破門.png");
               console.log("win");
             }
             else
@@ -914,6 +915,7 @@
           });
           $("#isAdoor").click(function () {//門
             if(footou==1){
+              $("#door").attr("src","破門.png");
               console.log("win");
             }
             else
@@ -975,8 +977,13 @@
         $("#phone1").show();
       });
       $("#isAdoor").click(function () {//門
-        $("#dialogDoor").dialog("open");
-      });
+            if(footou==1){
+              $("#door").attr("src","破門.png");
+              console.log("win");
+            }
+            else
+              $("#dialogDoor").dialog("open");
+          });
       $("#dialogDoor").dialog({
         autoOpen: false,
         modal: true, height: 140,
@@ -1408,7 +1415,7 @@
     <img src="ax_PNG9100.png" width="120" style=" text-align: center;">
   </div>
   <div id="dialogKey" title="獲得道具:鑰匙">
-    <img src="ax_PNG9100.png" width="120" style=" text-align: center;">
+    <img src="key.png" width="120" style=" text-align: center;">
   </div>
   <div class="container-fluid mt-3" id="doorAndPhone">
     <div class="row">
@@ -1421,7 +1428,7 @@
           usemap="#tocornerbotton">
         <img src="電話2.png" id="phonetonum" width="1000px" style="position: absolute; z-index:5;" usemap="#phonenumin">
         <img src="電話1.png" id="phone1" width="1000px" style="position: absolute; z-index:4;" usemap="#phoneworkmap">
-        <img src="門_1.png" width="1000px" height="600px" z-index="0" usemap="#workmap">
+        <img src="門_1.png" width="1000px" height="600px" z-index="0" usemap="#workmap" id="door">
         <map name="workmap">
           <area shape="rect" coords="660,350,750,420" id="phone">
           <area shape="rect" coords="215,120,430,600" id="isAdoor">
@@ -1637,7 +1644,8 @@
   <img src="箱子亮2.png" class="hidephoto">
   <img src="箱子亮3.png" class="hidephoto">
   <img src="箱子亮4.png" class="hidephoto">
-
+  <img src="染血魚缸.png" class="hidephoto">
+  <img src="破門.png" class="hidephoto">
 </body>
 
 </html>
