@@ -188,6 +188,136 @@
       $("#deskAndFish").hide();
       $("#loadingimg").show();
       $("#doorAndPhone").hide();
+      $("#dialogKey").hide();
+      $("#dialogBook").hide();
+      $("#floor2").hide();
+      $("#windowandfairy").hide();
+      $("#choice").hide();
+      $("#footou").hide();
+      $("#choose").hide();
+      $(".hidephoto").hide();
+      $("#box").hide();
+      $("#corner").hide();
+      $("#cornerbotton").hide();
+      $("#phonetonum").hide();
+      $("#forest").hide();
+      $("#bugs").hide();
+      $("#dialogBook").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 300,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogfish").dialog({
+        autoOpen: false,
+        modal: true, height: 150, width: 200,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogpiano").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogbox").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogfootou").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogKey").dialog({
+        autoOpen: false,
+        modal: true, height: 200, width: 250,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $(".dia").hide();
+      $("#phone1").hide();
+      $("#pianono").hide();
+      $("#piano_p").hide();
+      $("#dialogDoor").dialog({
+        autoOpen: false,
+        modal: true, height: 140,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#dialogKeyhole").dialog({
+        autoOpen: false,
+        modal: true, height: 140,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
+      $("#deskAndFish").hide();
+      $("#windowAndWoods").hide();
+      $("#pianoAndpic").hide();
+      $("#floor").hide();
+      $("#dialog").dialog({
+        autoOpen: false,
+        modal: true, height: 600, width: 700,
+        show: {
+          effect: "blind",
+          duration: 500
+        },
+        hide: {
+          effect: "blind",
+          duration: 250
+        }
+      });
       window.setTimeout(() => {
         $(function () {
           $("#loadingimg").hide();
@@ -229,7 +359,7 @@
             document.getElementById("si1").pause();
             document.getElementById("si1").currentTime = 0;
           }
-          $("#floortowindow").click(function(){
+          $("#floortowindow").click(function () {
             if (windowC == 1) {
               $("#windowopen").one("click", function () {
                 windowC = 0;
@@ -257,7 +387,7 @@
             //$("#pianoTowindow").trigger("click");
             $("#floor").hide();
           });
-          $("#floortowindow2").click(function(){
+          $("#floortowindow2").click(function () {
             $("#bugs").hide();
             $("#phone").off("click",);
             $("#isAdoor").off("click",);
@@ -480,7 +610,7 @@
             });
           }
           let box_ans;
-          $("#checkboxvalue").click(function(){
+          $("#checkboxvalue").click(function () {
             let boxnum = document.getElementById("boxnum1").value;
             boxnum += document.getElementById("boxnum2").value;
             boxnum += document.getElementById("boxnum3").value;
@@ -587,17 +717,18 @@
                 document.getElementById("si1").play();
                 console.log("si");
               });
-              dia_fairy_idx =0;
+              dia_fairy_idx = 0;
               dia_fairy_idx2 = 0;
               $("#fairy").click(function () {
                 if (dia_fairy_idx == 0 && dia_fairy_idx2 == 0)
-                  $("#fairydia").show();});
+                  $("#fairydia").show();
+              });
               $("#fairydia").click(function () {
-                  if (phone_complete2 == 0)
-                    fairy_dia();
-                  else
-                    fairy_dia2();
-                });
+                if (phone_complete2 == 0)
+                  fairy_dia();
+                else
+                  fairy_dia2();
+              });
             }
           )
           $("#deskTodoor").click(
@@ -939,17 +1070,18 @@
                 document.getElementById("si1").play();
                 console.log("si");
               });
-              dia_fairy_idx =0;
+              dia_fairy_idx = 0;
               dia_fairy_idx2 = 0;
               $("#fairy").click(function () {
                 if (dia_fairy_idx == 0 && dia_fairy_idx2 == 0)
-                  $("#fairydia").show();});
+                  $("#fairydia").show();
+              });
               $("#fairydia").click(function () {
-                  if (phone_complete2 == 0)
-                    fairy_dia();
-                  else
-                    fairy_dia2();
-                });
+                if (phone_complete2 == 0)
+                  fairy_dia();
+                else
+                  fairy_dia2();
+              });
             }
           )
           $("#pianoTodoor").click(
@@ -1012,22 +1144,6 @@
                 $("#pianoAndpic").hide()
             }
           )
-          $("#deskAndFish").hide();
-          $("#windowAndWoods").hide();
-          $("#pianoAndpic").hide();
-          $("#floor").hide();
-          $("#dialog").dialog({
-            autoOpen: false,
-            modal: true, height: 600, width: 700,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
           let tostart = 1;
           $("#tt").click(function () {
             console.log("yyy");
@@ -1063,111 +1179,12 @@
             else
               $("#dialogDoor").dialog("open");
           });
-          $("#dialogDoor").dialog({
-            autoOpen: false,
-            modal: true, height: 140,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
-          $("#dialogKeyhole").dialog({
-            autoOpen: false,
-            modal: true, height: 140,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
-          $(".dia").hide();
-          $("#phone1").hide();
           $("#chair").draggable({ axis: "x" });
-          $("#pianono").hide(); $("#piano_p").hide();
           $("#Mbook").click(
             function () {
               console.log('memorys');
               $("#dialogBook").dialog("open");
             });
-          $("#dialogBook").dialog({
-            autoOpen: false,
-            modal: true, height: 200, width: 300,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
-          $("#dialogfish").dialog({
-            autoOpen: false,
-            modal: true, height: 150, width: 200,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
-          $("#dialogpiano").dialog({
-            autoOpen: false,
-            modal: true, height: 200, width: 250,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
-          $("#dialogbox").dialog({
-            autoOpen: false,
-            modal: true, height: 200, width: 250,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
-          $("#dialogfootou").dialog({
-            autoOpen: false,
-            modal: true, height: 200, width: 250,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
-          $("#dialogKey").dialog({
-            autoOpen: false,
-            modal: true, height: 200, width: 250,
-            show: {
-              effect: "blind",
-              duration: 500
-            },
-            hide: {
-              effect: "blind",
-              duration: 250
-            }
-          });
           function phone_stop() {
             console.log("ccc");
             document.getElementById("phonesound").pause();
@@ -1190,15 +1207,13 @@
             document.getElementById("bee").play();
             $("#phonetonum").hide();
           }
-          $("#forest").hide();
-          $("#bugs").hide();
           //-----------------暫時這樣 這個是在對話之後
           $("#phonenum").click(function () {//切到密碼輸入圖
             console.log("ppp");
             if (dia_phone_idx == 3 && phone_complete == 0)
               $("#phonetonum").show();
           });
-          $("#phonetonum").hide();
+
           $("#num1").click(function () {
             console.log("1");
             console.log(document.getElementById("phonesound").currentTime);
@@ -1317,8 +1332,7 @@
             console.log("btn");
             $("#cornerbotton").show();
           });
-          $("#corner").hide();
-          $("#cornerbotton").hide();
+
           let button_ans = [4, 6, 2, 8, 8, 4, 6]
           let button_idx = 0;
           let button_arr = [0, 0, 0, 0, 0, 0, 0]
@@ -1388,7 +1402,6 @@
             if (magnet == 0)
               $("#box").show();
           });
-          $("#box").hide();
           $("#lights").click(
             function () {
               setTimeout(
@@ -1412,9 +1425,6 @@
                   document.getElementById("boxlight").setAttribute("src", "箱子全暗.png");//回
                 }, 5000);
             });
-
-          $(".hidephoto").hide();
-
           $("#paperpiece").click(() => { $("#piecepaper").show(); $("#windowAndWoods").hide(); console.log("paper"); });
           $("#piecepaper").hide();
           $("#forest").click(() => { $("#forest").hide(); $("#windowAndWoods").show(); });
@@ -1433,14 +1443,7 @@
               $("#dialogKeyhole").dialog("open");
             console.log("lock");
           });
-          //$("#video").hide();
-          $("#floor2").hide();
-          $("#windowandfairy").hide();
-          $("#choice").hide();
-          $("#footou").hide();
-          $("#choose").hide();
-          //-----
-          //$("#doorAndPhone").hide();
+
         })
       }, 10000);//onclick="phone(); onclick="door();
     });
