@@ -170,9 +170,8 @@
         });
       });
     }
-    let checkpianoclose = 0;
+    let checkpianoclose = 0;let ans;
     function check(arr, cnt) {
-      let ans = [5, 3, 3, 4, 2, 2, 1, 2, 3, 4, 5, 5, 5, 5, 3, 3, 4, 2, 2, 1, 3, 5, 5, 1];
       console.log(arr);
       for (let i = 23; i >= 0; i -= 1) {
         if (ans[i] != arr[cnt])
@@ -299,7 +298,47 @@
         dia_fairy_idx3 += 1;
       }
     }
-    let box_ans = "5932";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzKUYRm5oz_qlKaKg1Epe3kDqI6zo2yoYcTKysDY5fuSDBxQQnSF99t5J7KYdcsFZYm2g/exec";
+    readMethod();
+    function readMethod() {
+
+      let testC = [];
+      let testP = [];
+            let testP1 = [];
+      $.ajax({
+        url: scriptURL,
+        type: "GET",
+
+        // 若成功，執行以下...
+        success: function (response) {
+          for (let ii = 0; ii < 13; ii++) {
+            for (let jj = 0; jj < 26; jj++) {
+
+              testC.push(response[ii][jj]);
+
+            }
+          }
+          for (let ii = 13; ii < 40; ii++) {
+            for (let jj = 0; jj < 24; jj++) {
+
+              testP.push(response[ii][jj]);
+
+            }
+          }
+          for (let ii = 432; ii < 456; ii++) {
+            testP1.push(testP[ii]);
+          }
+          box_ans = testC[241];
+          console.log(box_ans);
+          ans=testP1;
+          console.log(ans);
+        },
+        error: function () {
+          console.log('read 失敗');
+        }
+      });
+    }
+    let box_ans;
     let magnet = 0;
     function checkboxvalue() {
       let boxnum = document.getElementById("boxnum1").value;
@@ -587,7 +626,7 @@
           }
           $("#fairydia").click(function () {
             $("#fairydia").hide();
-            if(getfairy == 1){$("#choice").show();}
+            if (getfairy == 1) { $("#choice").show(); }
           });
           $("#phone1").hide();
           $(".dia").hide();
@@ -1137,11 +1176,11 @@
 
       $(".hidephoto").hide();
 
-      $("#paperpiece").click(() => { $("#piecepaper").show();$("#windowAndWoods").hide(); console.log("paper"); });
+      $("#paperpiece").click(() => { $("#piecepaper").show(); $("#windowAndWoods").hide(); console.log("paper"); });
       $("#piecepaper").hide();
       $("#forest").click(() => { $("#forest").hide(); $("#windowAndWoods").show(); });
-      $("#bugs").click(() => { $("#bugs").hide();$("#pianoAndpic").show(); });
-      $("#piecepaper").click(() => { $("#piecepaper").hide();$("#windowAndWoods").show(); });
+      $("#bugs").click(() => { $("#bugs").hide(); $("#pianoAndpic").show(); });
+      $("#piecepaper").click(() => { $("#piecepaper").hide(); $("#windowAndWoods").show(); });
       //------------------------------------------------------------------------------
 
       $("#footoulock").click(() => { $("#piecepaper").show(); console.log("lock"); });
@@ -1297,14 +1336,14 @@
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
     </div>
   </div>
-  
+
   <!--改-->
   <div class="container-fluid mt-3" id="forest">
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="windowTodesk"></div>
       <div class="col-sm-10">
         <!---->
-        <img  src="樹林.png" width="1000px" height="600px" >
+        <img src="樹林.png" width="1000px" height="600px">
       </div>
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
     </div>
@@ -1315,7 +1354,7 @@
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="windowTodesk"></div>
       <div class="col-sm-10">
         <!---->
-        <img  src="紙片.png" width="1000px" >
+        <img src="紙片.png" width="1000px">
       </div>
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="->" id="windowTopiano"></div>
     </div>
@@ -1374,7 +1413,7 @@
       <div class="col-sm-1"> <input style="text-align: center;" type="button" value="->" id="pianoTodoor"></div>
     </div>
   </div>
-  
+
   <div class="container-fluid mt-3" id="bugs">
     <div class="row">
       <div class="col-sm-1"><input style="text-align: center;" type="button" value="<-" id="pianoTowindow"></div>
