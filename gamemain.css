@@ -1,0 +1,104 @@
+body {
+    text-align: center;
+    background-color: rgb(53, 42, 32);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  /*------------------------------------------------*/
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .numin {
+    text-align: center;
+    height: 100px;
+    width: 60px;
+    background-color: rgb(197, 197, 197);
+    margin: 20px;
+    font-size: 20px;
+    color: black;
+    padding: 0px;
+  }
+
+  /*------------------------------------------------*/
+  input {
+    /*按鈕*/
+    background-color: #44c767;
+    border-radius: 4px;
+    border: 3px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 10px 30px;
+    margin: 3px;
+    text-decoration: none;
+    text-shadow: 1px 1px 9px #2f6627;
+  }
+
+  #div1 {
+    /*background-color: cornflowerblue;
+    background-size: 75%;
+          margin-left: calc(100%/8);
+          width: 75%;*/
+    height: 50%;
+    position: relative;
+  }
+
+  .dia {
+    border: 5px double #83540d;
+    font-size: 35px;
+    font-weight: 550;
+    font-family: cwTeXFangSong;
+    background-color: rgb(223, 219, 213);
+    z-index: 10;
+    width: 900px;
+    height: 200px;
+    position: absolute;
+    top: 55%;
+    left: 24%;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0.8;
+    margin: auto;
+  }
+
+  #choose {
+    width: 1000px;
+    height: 600px;
+    box-sizing: border-box;
+  }
+
+  #choice {
+    width: calc(100%);
+    position: relative;
+    z-index: 4;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .opt {
+    font-size: 75px;
+    font-family: cwTeXFangSong;
+    color: red;
+    width: calc(100%/2);
+    text-align: center;
+    position: relative;
+    top: +200px;
+    box-sizing: border-box;
+  }
+
+  #throw {
+    float: left;
+  }
+
+  #think {
+    float: right;
+  }
+
+  .opt:hover {
+    font-size: 120px;
+  }
