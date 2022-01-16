@@ -161,8 +161,8 @@
     <script>
         function start() {
             let time = JSON.parse(localStorage.getItem("endtime"));
-            let text = " 遊玩時長:" + time.hours + "時" + time.minutse + "分" + time.sec + "秒";
-            document.getElementById("time").innerHTML = text;
+            let text = time.hours + "時" + time.minutse + "分" + time.sec + "秒";
+            document.getElementById("time").innerHTML += text;
         }
         window.addEventListener("load", start, false);
     </script>
@@ -180,7 +180,7 @@
                     門外突然傳來了聲音...<br>
                     <br>
                     <div class="special">他&nbsp;回&nbsp;來&nbsp;了</div><br><br>
-                    <span id="time"></span>
+                    <span id="time">遊玩時長:</span>
                 </div>
             </div>
         </div>
