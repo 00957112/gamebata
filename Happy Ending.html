@@ -181,8 +181,8 @@
     <script>
         function start() {
             let time = JSON.parse(localStorage.getItem("endtime"));
-            let text = " 遊玩時長:" + time.hours + "時" + time.minutse + "分" + time.sec + "秒";
-            document.getElementById("time").innerHTML = text;
+            let text =time.hours + "時" + time.minutse + "分" + time.sec + "秒";
+            document.getElementById("time").innerHTML += text;
         }
         window.addEventListener("load", start, false);
     </script>
@@ -203,7 +203,7 @@
                     至於為何會被盯上<br>
                     根據警察的轉述似乎是...<br>
                     <span class="special">瘋子: 因為他看了我一眼</span><br><br>
-                    <span id="time"></span>
+                    <span id="time">遊玩時長:</span>
                 </div>
 
             </div>
