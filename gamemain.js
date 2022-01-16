@@ -1,6 +1,7 @@
 $(document).ready(() => {
     localStorage.clear();
     $("#fairydia").hide();
+    $("#piecepaper").hide();
     $("#phonedia").hide();
     $("#deskAndFish").hide();
     $("#loadingimg").show();
