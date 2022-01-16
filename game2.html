@@ -22,17 +22,23 @@
     <style>
         @import url("https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css");
     </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Island+Moments&family=The+Nautigal:wght@700&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+    </style>
     <title>Document</title>
     <style type="text/css">
         body {
             text-align: center;
             font-family: cwTeXFangSong;
             font-size: 20px;
-            letter-spacing:10px;
-            -webkit-user-select:none;
--moz-user-select:none;
--o-user-select:none;
-user-select:none;
+            letter-spacing: 10px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
         }
 
         #div1 {
@@ -51,25 +57,33 @@ user-select:none;
             cursor: pointer;
             color: #ffffff;
             font-size: 20px;
-            letter-spacing:5px;
+            letter-spacing: 5px;
             padding: 15px 76px;
             margin: 3px;
             text-decoration: none;
             text-shadow: 1px 1px 9px #2f6627;
         }
-        input:hover
-        {
+
+        input:hover {
             font-size: 28px;
-            font-weight:600;
+            font-weight: 600;
         }
+
         h1 {
             font-size: 300%;
+        }
+
+        #title {
+            font-family: 'Caveat', cursive;
+            font-size: 90px;
+            font-weight: bolder;
+            color: white;
         }
     </style>
     <script>
         function change() {//開始改變(嚇?)
             document.getElementById("div1").setAttribute("style", "background-image:none; background-color:black;")
-            document.getElementById("title").setAttribute("style", "color:red;")
+            document.getElementById("title").setAttribute("style", "color:red;  font-family: 'Island Moments', cursive;")
             document.getElementById("div2").setAttribute("style", "background-image:none; background-color:black;")
             document.getElementById("div2").innerHTML = '<a href="game.html"><input onclick="change()" type="button" width="100" value="你真的要進入嗎?" id="b1" style="color:red;"></a>';
 
@@ -82,7 +96,8 @@ user-select:none;
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10" id="div1"><br><br><br><br><br><br><br><br><br><br><br>
-                <h1 id="title">遊戲名稱</h1>
+                <h1 id="title">The Cabin In The Woods</h1>
+                <br>
                 <div id="div2"><input onclick="change()" type="button" width="100" value="進入遊戲" id="b1"></div>
                 <br><br><br><br><br><br><br><br><br><br><br>
             </div>
