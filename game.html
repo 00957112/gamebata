@@ -15,10 +15,10 @@
     body {
       text-align: center;
       background-color: rgb(53, 42, 32);
-      -webkit-user-select:none;
-      -moz-user-select:none;
-      -o-user-select:none;
-user-select:none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      user-select: none;
     }
 
     /*------------------------------------------------*/
@@ -324,6 +324,7 @@ user-select:none;
       });
       window.setTimeout(() => {
         $(function () {
+          let strattime = Date.now();
           $("#loadingimg").hide();
           $("#doorAndPhone").show();
           let intervalId;
@@ -381,7 +382,6 @@ user-select:none;
             else {
               $("#outwindow").click(
                 function () {
-                  console.log("ww");
                   $("#forest").show();
                   $("#windowAndWoods").hide();
                 }
@@ -441,7 +441,17 @@ user-select:none;
             $("#think").click(function () {
               console.log("k");
               $("#choose").hide();
-              $(".ending")[0].click();
+              let endtime = Date.now();
+              let timeall = new Date(endtime - strattime);
+              let finaltime = {
+                hours: timeall.getUTCHours(),
+                minutse: timeall.getUTCMinutes(),
+                sec: timeall.getUTCSeconds()
+              }
+              let outtime = JSON.stringify(finaltime);
+              localStorage.setItem("endtime", outtime);
+              setTimeout(() => { $(".ending")[0].click(); }, 3000);
+
             })
           }
           let checkpianoclose = 0; let ans;
@@ -756,7 +766,16 @@ user-select:none;
               });
               $("#isAdoor").click(function () {//門
                 if (breakdoor == 1) {
-                  $(".ending")[2].click();
+                  let endtime = Date.now();
+                  let timeall = new Date(endtime - strattime);
+                  let finaltime = {
+                    hours: timeall.getUTCHours(),
+                    minutse: timeall.getUTCMinutes(),
+                    sec: timeall.getUTCSeconds()
+                  }
+                  let outtime = JSON.stringify(finaltime);
+                  localStorage.setItem("endtime", outtime);
+                  setTimeout(() => { $(".ending")[2].click(); }, 2000);
                 }
                 else if (footou == 1) {
                   $("#door").attr("src", "破門.png");
@@ -799,7 +818,16 @@ user-select:none;
                       }
                     }
                     else {
-                      $(".ending")[1].click();
+                      let endtime = Date.now();
+                      let timeall = new Date(endtime - strattime);
+                      let finaltime = {
+                        hours: timeall.getUTCHours(),
+                        minutse: timeall.getUTCMinutes(),
+                        sec: timeall.getUTCSeconds()
+                      }
+                      let outtime = JSON.stringify(finaltime);
+                      localStorage.setItem("endtime", outtime);
+                      setTimeout(() => { $(".ending")[1].click(); }, 2000);
                     }
                   });
               }
@@ -907,7 +935,16 @@ user-select:none;
                       }
                     }
                     else {
-                      $(".ending")[1].click();
+                      let endtime = Date.now();
+                      let timeall = new Date(endtime - strattime);
+                      let finaltime = {
+                        hours: timeall.getUTCHours(),
+                        minutse: timeall.getUTCMinutes(),
+                        sec: timeall.getUTCSeconds()
+                      }
+                      let outtime = JSON.stringify(finaltime);
+                      localStorage.setItem("endtime", outtime);
+                      setTimeout(() => { $(".ending")[1].click(); }, 2000);
                     }
                   });
               }
@@ -1122,7 +1159,16 @@ user-select:none;
               });
               $("#isAdoor").click(function () {//門
                 if (breakdoor == 1) {
-                  $(".ending")[2].click();
+                  let endtime = Date.now();
+                  let timeall = new Date(endtime - strattime);
+                  let finaltime = {
+                    hours: timeall.getUTCHours(),
+                    minutse: timeall.getUTCMinutes(),
+                    sec: timeall.getUTCSeconds()
+                  }
+                  let outtime = JSON.stringify(finaltime);
+                  localStorage.setItem("endtime", outtime);
+                  setTimeout(()=>{ $(".ending")[2].click();},2000);
                 }
                 else if (footou == 1) {
                   $("#door").attr("src", "破門.png");
@@ -1173,7 +1219,16 @@ user-select:none;
           });
           $("#isAdoor").click(function () {//門
             if (breakdoor == 1) {
-              $(".ending")[2].click();
+              let endtime = Date.now();
+                  let timeall = new Date(endtime - strattime);
+                  let finaltime = {
+                    hours: timeall.getUTCHours(),
+                    minutse: timeall.getUTCMinutes(),
+                    sec: timeall.getUTCSeconds()
+                  }
+                  let outtime = JSON.stringify(finaltime);
+                  localStorage.setItem("endtime", outtime);
+                  setTimeout(()=>{$(".ending")[2].click();},2000);
             }
             else if (footou == 1) {
               $("#door").attr("src", "破門.png");
