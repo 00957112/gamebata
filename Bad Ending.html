@@ -156,8 +156,8 @@
         function start()
         {
             let time=JSON.parse(localStorage.getItem("endtime"));
-            let text=" 遊玩時長:"+time.hours+"時"+ time.minutse+"分"+time.sec+"秒";      
-            document.getElementById("time").innerHTML=text;
+            let text=time.hours+"時"+ time.minutse+"分"+time.sec+"秒";      
+            document.getElementById("time").innerHTML+=text;
         }
         window.addEventListener("load",start,false);
     </script>
@@ -174,7 +174,7 @@
                     就感到一陣劇痛<br>
                     將手再次拿起時...<br>
                     只看到<span class="special">皮開肉綻的手</span>便昏了過去<br><br><br>
-                    <span id="time"></span>
+                    <span id="time">遊玩時長:</span>
                 </div>
             </div>
         </div>
