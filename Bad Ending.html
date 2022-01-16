@@ -18,27 +18,33 @@
      <style>
         @import url("https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css");
     </style>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+            </style>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+            </style>
     <title>Bad Ending</title>
 
     <script>//畫面對齊(長)
         $(document).ready(
             function () {
-                $('html, body').scrollTop(100);
+                $('html, body').scrollTop(0);
             }
         )
     </script>
 
     <style type="text/css">
-        body {
+         body {
             text-align: center;
             background-image: url(badend_back.png);
             background-repeat: no-repeat;
             background-size: 100%;
             background-color: black;
-            -webkit-user-select:none;
--moz-user-select:none;
--o-user-select:none;
-user-select:none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
         }
 
         #memory {
@@ -66,17 +72,19 @@ user-select:none;
             font-size: 30px;
             position: relative;
             line-height: 60px;
-            top:50%;
+            top:12%;
             color:rgba(255, 255, 255, 0.795);
             letter-spacing:4px;
         }
         .special
         {
-            font-size: 35px;
-            color:rgb(211, 16, 16);
-            font-weight: bold;
+            font-family: cwTeXFangSong;
+            font-weight: bolder;
+            letter-spacing:10px;
+            font-size: 40px;
+            color:rgb(228, 17, 17);
             background-color: black;
-            box-sizing: border-box;
+            padding:8px;
         }
         .say
         {
@@ -86,7 +94,73 @@ user-select:none;
             line-height: 60px;
             letter-spacing:4px;
         }
+        .feedback
+        {
+            text-decoration: none;
+            font-family: cwTeXFangSong;
+            color:white;
+            font-size: 30px;
+            line-height: 60px;
+            letter-spacing:4px;
+
+        }
+        a
+        {
+            text-decoration: none;
+            font-family: cwTeXFangSong;
+            color:white;
+        }
+        a:hover
+        {
+            color:rgb(248, 197, 28);
+        }
+        img
+        {
+            border-radius: 10px;
+        }
+        #time
+        {
+            color:rgb(219, 218, 218);
+            font-size: 36px;
+            font-weight: bold;
+            background-color:  rgb(94, 93, 93);
+            border-radius: 8px;
+            padding:8px;
+        }
+        .special_
+        {
+            display: inline-block;
+            border-radius: 8px;
+            padding: 3px;
+        }
+        .Creators
+        {
+            display: inline-block;
+            border-radius: 8px;
+            padding: 3px; 
+        }
+        .title
+        {
+            font-family: 'Neonderthaw', cursive;
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        .name_
+        {
+            font-family: 'Great Vibes', cursive;
+            font-weight: bold;
+            font-size: 35px;
+        }
     </style>
+     <script>
+        function start()
+        {
+            let time=JSON.parse(localStorage.getItem("endtime"));
+            let text=" 遊玩時長:"+time.hours+"時"+ time.minutse+"分"+time.sec+"秒";      
+            document.getElementById("time").innerHTML=text;
+        }
+        window.addEventListener("load",start,false);
+    </script>
 </head>
 
 <body>
@@ -99,7 +173,8 @@ user-select:none;
                 <div class="end"> 手一伸進魚缸<br>
                     就感到一陣劇痛<br>
                     將手再次拿起時...<br>
-                    只看到<span class="special">皮開肉綻的手</span>便昏了過去<br>
+                    只看到<span class="special">皮開肉綻的手</span>便昏了過去<br><br><br>
+                    <span id="time"></span>
                 </div>
             </div>
         </div>
@@ -109,9 +184,27 @@ user-select:none;
     <div class="say">
         沒想到...<br>
         居然有人會到這個結局<br>
+        <br><br><br><br><br><br><br><br>
+        <div class="special_">
+            <span class="title">Special Thanks</span><br>
+            <span class="name_">Rong</span></div><br><br>
+        <div class="Creators">
+            <span class="title">Creators</span><br>
+            <span class="name_">Tong Tong</span><br>
+            <span class="name_">Hua Hua</span>
+        </div>
     </div>
-    <br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="feedback">
+        十分感謝您的遊玩!<br>
+        可以的話請幫我們填寫回饋表單~<br>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpgrp34h1wXfAxJn9nFD26Beb_GfDz_CbFACxGK-q9iIaz7g/viewform?usp=sf_link" target="_blank">
+            <img src="please-begging.gif">
+            <br>表單連結
+        </a>
+    </div>
+
 </body>
 
 
