@@ -371,12 +371,10 @@
                 document.getElementById("towindow").setAttribute("src", "窗戶_2.png");
                 setTimeout(
                   function () {
-                    document.getElementById("bridbang").play();
-                    setTimeout(
-                      function () {
-                        document.getElementById("towindow").setAttribute("src", "窗戶_db.png");
-                      }, 900);
-                  }, 1000);
+                    document.getElementById("towindow").setAttribute("src", "窗戶_db.png");
+                  }, 1900);
+                  setTimeout(()=>{
+                    document.getElementById("bridbang").play();console.log("QQ");},2000);
               });
             }
             else {
@@ -893,14 +891,12 @@
                 $("#windowopen").one("click", function () {
                   windowC = 0;
                   document.getElementById("towindow").setAttribute("src", "窗戶_2.png");
-                  setTimeout(
-                    function () {
-                      document.getElementById("bridbang").play();
-                      setTimeout(
-                        function () {
-                          document.getElementById("towindow").setAttribute("src", "窗戶_db.png");
-                        }, 900);
-                    }, 1000);
+                    setTimeout(
+                  function () {
+                    document.getElementById("towindow").setAttribute("src", "窗戶_db.png");
+                  }, 1900);
+                  setTimeout(()=>{
+                    document.getElementById("bridbang").play();console.log("QQ");},2000);
                 });
               }
               else {
@@ -1006,13 +1002,11 @@
                   windowC = 0;
                   document.getElementById("towindow").setAttribute("src", "窗戶_2.png");
                   setTimeout(
-                    function () {
-                      document.getElementById("bridbang").play();
-                      setTimeout(
-                        function () {
-                          document.getElementById("towindow").setAttribute("src", "窗戶_db.png");
-                        }, 900);
-                    }, 1000);
+                  function () {
+                    document.getElementById("towindow").setAttribute("src", "窗戶_db.png");
+                  }, 1900);
+                  setTimeout(()=>{
+                    document.getElementById("bridbang").play();console.log("QQ");},2000);
                 });
               }
               else {
