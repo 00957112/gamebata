@@ -543,16 +543,18 @@ $(document).ready(() => {
                     });
                     dia_fairy_idx = 0;
                     dia_fairy_idx2 = 0;
-                    $("#fairy").click(function () {
-                        if (dia_fairy_idx == 0 && dia_fairy_idx2 == 0)
-                            $("#fairydia").show();
-                    });
-                    $("#fairydia").click(function () {
-                        if (phone_complete2 == 0)
-                            fairy_dia();
-                        else
-                            fairy_dia2();
-                    });
+                    if (getfairy == 0) {
+                        $("#fairy").click(function () {
+                            if (dia_fairy_idx == 0 && dia_fairy_idx2 == 0)
+                                $("#fairydia").show();
+                        });
+                        $("#fairydia").click(function () {
+                            if (phone_complete2 == 0)
+                                fairy_dia();
+                            else
+                                fairy_dia2();
+                        });
+                    }
                 }
             )
             $("#deskTodoor").click(
@@ -921,16 +923,18 @@ $(document).ready(() => {
                     });
                     dia_fairy_idx = 0;
                     dia_fairy_idx2 = 0;
-                    $("#fairy").click(function () {
-                        if (dia_fairy_idx == 0 && dia_fairy_idx2 == 0)
-                            $("#fairydia").show();
-                    });
-                    $("#fairydia").click(function () {
-                        if (phone_complete2 == 0)
-                            fairy_dia();
-                        else
-                            fairy_dia2();
-                    });
+                    if (getfairy == 0) {
+                        $("#fairy").click(function () {
+                            if (dia_fairy_idx == 0 && dia_fairy_idx2 == 0)
+                                $("#fairydia").show();
+                        });
+                        $("#fairydia").click(function () {
+                            if (phone_complete2 == 0)
+                                fairy_dia();
+                            else
+                                fairy_dia2();
+                        });
+                    }
                 }
             )
             $("#pianoTodoor").click(
